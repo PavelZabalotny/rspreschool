@@ -1,3 +1,157 @@
-* {
-	box-sizing: border-box;
+/* Переменные */
+:root {
+  --bg-dark: #000000;
+  --gold: #bdae82;
+  --white: #ffffff;
+}
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-rendering: optimizeSpeed;
+  /* Font */
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+  color: var(--white);
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--gold);
+	transition: 0.3s;
+}
+
+.container {
+  width: 1440px; /* replace to max-width later */
+  margin: 0 auto;
+ /*  padding: 0 20px; */
+  /* border: 1px solid red; */
+}
+
+.header-container {
+  height: 910px;
+  background: url('./assets/img/header-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  padding: 20px 20px 0 20px;
+}
+
+.header-top {
+  display: flex;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.logo {
+	width: 50px;
+	height: 50px;
+	background-image: url('./assets/svg/logo.svg');
+}
+
+.nav {
+  margin-left: auto;
+}
+
+ul.nav-list {
+ /*  width: 500px; */
+  height: 50px;
+  display: flex;
+	gap: 30px;
+	padding: 0 30px;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.switch-lng {
+	width: 70px;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+}
+
+.main {
+  background-color: rgb(93, 47, 153);
+  flex: 1 0 auto;
+}
+
+.footer {
+  background-color: rgb(76, 207, 24);
 }
