@@ -3,6 +3,7 @@
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+  --black: #000000;
 }
 
 /* Указываем box sizing */
@@ -89,19 +90,19 @@ select {
 }
 
 a {
-	color: var(--white);
-	text-decoration: none;
+  color: var(--white);
+  text-decoration: none;
 }
 
 a:hover {
-	color: var(--gold);
-	transition: 0.3s;
+  color: var(--gold);
+  transition: color 0.3s;
 }
 
 .container {
   width: 1440px; /* replace to max-width later */
   margin: 0 auto;
- /*  padding: 0 20px; */
+  /*  padding: 0 20px; */
   /* border: 1px solid red; */
 }
 
@@ -111,6 +112,37 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center 0;
   padding: 20px 20px 0 20px;
+  /* position: relative; */
+}
+
+.hero {
+  width: 500px;
+  height: 330px;
+  margin: 195px 0 0 40px;
+  padding-left: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+  background-color: rgba(255, 255, 255, 0.151);
+}
+
+.hero h1 {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 90px;
+  text-align: left;
+}
+
+.hero-description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: left;
+  padding: 25px 15px 20px 0;
 }
 
 .header-top {
@@ -120,9 +152,9 @@ a:hover {
 }
 
 .logo {
-	width: 50px;
-	height: 50px;
-	background-image: url('./assets/svg/logo.svg');
+  width: 50px;
+  height: 50px;
+  background-image: url('./assets/svg/logo.svg');
 }
 
 .nav {
@@ -130,28 +162,56 @@ a:hover {
 }
 
 ul.nav-list {
- /*  width: 500px; */
+  /*  width: 500px; */
   height: 50px;
   display: flex;
-	gap: 30px;
-	padding: 0 30px;
+  gap: 30px;
+  padding: 0 30px;
   justify-content: space-around;
   align-items: center;
   /* border: 1px solid red; */
 }
 
 .switch-lng {
-	width: 70px;
+  width: 70px;
   display: flex;
   align-items: center;
-	justify-content: center;
+  justify-content: center;
+}
+
+.lang {
+  cursor: pointer;
+	/* letter-spacing: 2px; */
+}
+
+.lang:hover {
+  color: var(--gold);
+  transition: color 0.3s;
 }
 
 .main {
-  background-color: rgb(93, 47, 153);
+  /* background-color: rgba(93, 47, 153, 0.144); */
   flex: 1 0 auto;
 }
 
 .footer {
-  background-color: rgb(76, 207, 24);
+  /* background-color: rgba(76, 207, 24, 0.178); */
 }
+
+/* Button style */
+.btn {
+  padding: 7px 73px;
+  font-size: 20px;
+  line-height: 40px;
+	border: none;
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--black);
+}
+
+.hero button.btn {
+	margin-top: 6px;
+}
+/* END */
