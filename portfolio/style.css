@@ -120,9 +120,9 @@ a:hover {
   height: 330px;
   margin: 195px 0 0 40px;
   padding-left: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
   background-color: rgba(255, 255, 255, 0.151);
 }
 
@@ -181,7 +181,7 @@ ul.nav-list {
 
 .lang {
   cursor: pointer;
-	/* letter-spacing: 2px; */
+  /* letter-spacing: 2px; */
 }
 
 .lang:hover {
@@ -203,7 +203,7 @@ ul.nav-list {
   padding: 7px 73px;
   font-size: 20px;
   line-height: 40px;
-	border: none;
+  border: none;
 }
 
 .btn-gold {
@@ -212,6 +212,82 @@ ul.nav-list {
 }
 
 .hero button.btn {
-	margin-top: 6px;
+  margin-top: 6px;
 }
 /* END */
+/* Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.section-title {
+  padding: 0 275px;
+  background: url(./assets/svg/section-title-line.svg) no-repeat center;
+}
+
+.section-title h2 {
+  font-family: Merriweather;
+  font-size: 40px;
+  line-height: 80px;
+  color: var(--gold);
+  padding: 0 20px;
+  background-color: var(--black);
+}
+/* END */
+
+/* Skills */
+.skills-items {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 60px;
+}
+
+.skill-item {
+  flex-basis: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #bdae8227; */
+}
+
+.skill-title {
+  margin-top: 50px;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.skill-description {
+  margin: 20px 20px 8px 20px;
+  font-size: 18px;
+  line-height: 36px;
+}
+/* END */
+
+/* Sprites */
+.bg-video {
+  width: 60px;
+  height: 50px;
+  background: url(./assets/png/css_sprites_skills.png) -10px -80px;
+}
+
+.bg-camera {
+  width: 62px;
+  height: 50px;
+  background: url(./assets/png/css_sprites_skills.png) -96px -10px;
+}
+
+.bg-image {
+  width: 66px;
+  height: 50px;
+  background: url(./assets/png/css_sprites_skills.png) -10px -10px;
+}
+
+.bg-mic {
+  width: 32px;
+  height: 50px;
+  background: url(./assets/png/css_sprites_skills.png) -90px -80px;
+}
+/*END*/
