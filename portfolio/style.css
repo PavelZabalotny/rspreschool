@@ -123,7 +123,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  background-color: rgba(255, 255, 255, 0.151);
 }
 
 .hero h1 {
@@ -225,6 +224,9 @@ ul.nav-list {
 }
 
 .btn-black {
+	width: 220px;
+	height: 55px;
+	padding: 0;
   background-color: transparent;
   color: var(--white);
   border: 2px solid var(--gold);
@@ -234,6 +236,12 @@ ul.nav-list {
   color: var(--black);
   background: var(--gold);
   transition: none;
+}
+
+.btn-price {
+  padding: 7px 39px;
+  font-family: Inter;
+  font-weight: normal;
 }
 
 .hero button.btn {
@@ -300,7 +308,7 @@ ul.nav-list {
 .portfolio-items {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 57px;
+  padding-top: 60px;
   gap: 2px;
 }
 
@@ -321,21 +329,71 @@ ul.nav-list {
   background: url(./assets/img/video-player.jpg) no-repeat center;
   margin-top: 59px;
   /* position: relative; */
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-player .icon {
   height: 130px;
   width: 129.86485290527344px;
-	fill: var(--white);
-	cursor: pointer;
-	transition: var(--trasition-0-3s);
+  fill: var(--white);
+  cursor: pointer;
+  transition: var(--trasition-0-3s);
 }
 
 .video-player .icon:hover {
-	fill: var(--gold);
+  fill: var(--gold);
+}
+/* END */
+/* Price */
+.product-wrapper {
+  display: flex;
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.product-wrapper span {
+  display: block;
+}
+
+.product-card {
+		width: 450px;
+	height: 505px;
+  /* display: flex;
+	flex-direction: column; */
+  border: 3px solid var(--gold);
+	padding-top: 50px;
+	padding-bottom: 40px;
+}
+
+.product-card button {
+  margin-top: 40px;
+}
+
+.price-description {
+  margin-top: 26px;
+}
+
+.price-description span {
+  font-family: Inter;
+  font-weight: normal;
+}
+
+.product-card {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.price-title {
+  font-size: 28px;
+}
+
+.price-value {
+  font-size: 24px;
+  margin-top: 37px;
+  color: var(--gold);
 }
 /* END */
 /* Sprites */
