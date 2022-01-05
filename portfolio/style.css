@@ -1,9 +1,9 @@
 /* Переменные */
 :root {
-  --bg-dark: #000000;
+  --black: #000000;
   --gold: #bdae82;
   --white: #ffffff;
-  --black: #000000;
+	--trasition: 0.3s;
 }
 
 /* Указываем box sizing */
@@ -44,7 +44,7 @@ dd {
 /* Выставляем основные настройки по-умолчанию для body */
 body {
   min-height: 100vh;
-  background: var(--bg-dark);
+  background: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -96,7 +96,7 @@ a {
 
 a:hover {
   color: var(--gold);
-  transition: color 0.3s;
+  transition: color var(--trasition);
 }
 
 .container {
@@ -155,12 +155,13 @@ a:hover {
   width: 50px;
   height: 50px;
   background-image: url('./assets/svg/logo.svg');
-	cursor: pointer;
-	transition: 0.3s;
+  cursor: pointer;
+  transition: var(--trasition);
 }
 
 .logo:hover {
-	filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .nav {
@@ -192,7 +193,7 @@ ul.nav-list {
 
 .lang:hover {
   color: var(--gold);
-  transition: color 0.3s;
+  transition: color var(--trasition);
 }
 
 .main {
@@ -206,15 +207,33 @@ ul.nav-list {
 
 /* Button style */
 .btn {
-  padding: 7px 73px;
+  padding: 7px 74px;
   font-size: 20px;
   line-height: 40px;
   border: none;
+	cursor: pointer;
+	transition: color var(--trasition);
 }
 
 .btn-gold {
   background-color: var(--gold);
   color: var(--black);
+}
+
+.btn-gold:hover {
+	color: var(--white);
+}
+
+.btn-black {
+	background-color: var(--black);
+	color: var(--white);
+	border: 2px solid var(--gold);
+}
+
+.btn-black:hover {
+	color: var(--black);
+	background: var(--gold);
+	transition: none;
 }
 
 .hero button.btn {
@@ -268,10 +287,30 @@ ul.nav-list {
 .skill-description {
   margin: 20px 20px 8px 20px;
   font-size: 18px;
-  line-height: 36px;
+  line-height: 37px;
 }
 /* END */
+/* Porftolio */
+.portfolio-btns {
+	margin-top: 60px;
+	display: flex;
+	gap: 5px;
+}
 
+.portfolio-items {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 57px;
+	gap: 2px;
+}
+
+.portfolio-img {
+	width: 450px;
+	height: 560px;
+	margin-left: 21px;
+	margin-bottom: 24px;
+}
+/* END */
 /* Sprites */
 .bg-video {
   width: 60px;
