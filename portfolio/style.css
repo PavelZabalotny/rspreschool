@@ -4,6 +4,12 @@
   --gold: #bdae82;
   --white: #ffffff;
   --trasition-0-3s: 0.3s;
+	--font-size-18: 18px;
+	--font-size-20: 20px;
+	--font-size-24: 24px;
+	--font-size-28: 28px;
+	--font-size-40: 40px;
+	--font-size-60: 60px;
 }
 
 /* Указываем box sizing */
@@ -53,7 +59,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: var(--font-size-18);
   line-height: 36px;
   text-align: center;
   color: var(--white);
@@ -115,7 +121,7 @@ a:hover {
 
 .header-top {
   display: flex;
-  font-size: 20px;
+  font-size: var(--font-size-20);
   line-height: 50px;
 }
 
@@ -191,7 +197,7 @@ ul.nav-list {
 }
 
 .footer-data span {
-  font-size: 20px;
+  font-size: var(--font-size-20);
 }
 
 .footer-data span a {
@@ -199,7 +205,7 @@ ul.nav-list {
 }
 
 .footer-data span:first-child {
-  font-size: 18px;
+  font-size: var(--font-size-18);
   padding-left: 20px;
 }
 /* END Footer data */
@@ -236,7 +242,7 @@ ul.social-list li {
 /* RSSchool */
 .rsschool-link {
   padding-left: 19px;
-  font-size: 20px;
+  font-size: var(--font-size-20);
 }
 
 .rsschool-link a {
@@ -248,7 +254,7 @@ ul.social-list li {
 /* Button style */
 .btn {
   padding: 7px 74px;
-  font-size: 20px;
+  font-size: var(--font-size-20);
   line-height: 40px;
   border: none;
   cursor: pointer;
@@ -318,7 +324,7 @@ ul.social-list li {
 
 .section-title h2 {
   font-family: Merriweather;
-  font-size: 40px;
+  font-size: var(--font-size-40);
   line-height: 80px;
   color: var(--gold);
   padding: 0 20px;
@@ -348,7 +354,7 @@ ul.social-list li {
   font-family: Merriweather;
   font-style: normal;
   font-weight: bold;
-  font-size: 60px;
+  font-size: var(--font-size-60);
   line-height: 90px;
   text-align: left;
 }
@@ -357,7 +363,7 @@ ul.social-list li {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: var(--font-size-20);
   line-height: 40px;
   text-align: left;
   padding: 25px 15px 20px 0;
@@ -380,13 +386,13 @@ ul.social-list li {
 
 .skill-title {
   margin-top: 50px;
-  font-size: 20px;
+  font-size: var(--font-size-20);
   line-height: 40px;
 }
 
 .skill-description {
   margin: 20px 20px 8px 20px;
-  font-size: 18px;
+  font-size: var(--font-size-18);
   line-height: 37px;
 }
 /* END Skills */
@@ -482,11 +488,11 @@ ul.social-list li {
 }
 
 .price-title {
-  font-size: 28px;
+  font-size: var(--font-size-28);
 }
 
 .price-value {
-  font-size: 24px;
+  font-size: var(--font-size-24);
   margin-top: 37px;
   color: var(--gold);
 }
@@ -524,7 +530,7 @@ ul.social-list li {
 .contacts input:focus,
 .contacts textarea:focus {
   outline: 1px solid var(--gold);
-  font-size: 20px;
+  font-size: var(--font-size-20);
 }
 
 .contacts input:focus {
@@ -552,12 +558,12 @@ ul.social-list li {
 .contacts textarea::placeholder {
   font-family: inherit;
   color: var(--gold);
-  font-size: 20px;
+  font-size: var(--font-size-20);
 }
 
 .contacts h2 {
   font-family: Merriweather;
-  font-size: 40px;
+  font-size: var(--font-size-40);
   color: var(--gold);
   margin-bottom: 62px;
 }
