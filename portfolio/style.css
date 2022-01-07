@@ -167,27 +167,30 @@ a:hover {
 ul.nav-list {
   height: 50px;
   display: flex;
+	margin-right: 32px;
   gap: 30px;
-  padding: 0 30px;
   justify-content: space-around;
   align-items: center;
 }
 
+/* Header lang */
 .switch-lng {
   width: 70px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .lang {
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.lang:hover {
-  color: var(--gold);
-  transition: color var(--trasition-0-3s);
+.lang-active {
+	color: var(--gold);
+	cursor: default;
 }
+
+/* END Header lang */
 
 .main {
   flex: 1 0 auto;
