@@ -193,9 +193,69 @@ ul.nav-list {
   flex: 1 0 auto;
 }
 
-.footer {
-  /* background-color: rgba(76, 207, 24, 0.178); */
+/* Footer */
+.footer .container {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.footer-data {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.footer-data span {
+  font-size: 20px;
+}
+
+.footer-data span a {
+	transition: color var(--trasition-0-3s);
+}
+
+.footer-data span:first-child {
+  font-size: 18px;
+  padding-left: 20px;
+}
+.social-list {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+ul.social-list li {
+  margin-right: 20px;
+}
+
+.social-list a {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.social-list a svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--white);
+}
+
+.social-list a svg:hover {
+  fill: var(--gold);
+  transition: fill var(--trasition-0-3s);
+}
+
+.rsschool-link {
+  padding-left: 19px;
+	font-size: 20px;
+}
+
+.rsschool-link a {
+	transition: color var(--trasition-0-3s);
+}
+/* END Footer */
 
 /* Button style */
 .btn {
@@ -245,7 +305,8 @@ ul.nav-list {
   padding: 7px 40px;
   margin-top: 10px;
 }
-/* END */
+/* END Button style */
+
 /* Sections */
 .section {
   display: flex;
@@ -267,7 +328,8 @@ ul.nav-list {
   padding: 0 20px;
   background-color: var(--black);
 }
-/* END */
+/* END Sections */
+
 /* Skills */
 .skills-items {
   display: flex;
@@ -293,7 +355,8 @@ ul.nav-list {
   font-size: 18px;
   line-height: 37px;
 }
-/* END */
+/* END Skills */
+
 /* Porftolio */
 .portfolio-btns {
   margin-top: 60px;
@@ -317,7 +380,8 @@ ul.nav-list {
 .portfolio-img:nth-child(-n + 3) {
   margin-bottom: 24px;
 }
-/* END */
+/* END Porftolio */
+
 /* Video */
 .video-player {
   width: 1400px;
@@ -340,7 +404,8 @@ ul.nav-list {
 .video-player .icon:hover {
   fill: var(--gold);
 }
-/* END */
+/* END Video */
+
 /* Price */
 .product-wrapper {
   display: flex;
@@ -388,8 +453,9 @@ ul.nav-list {
   margin-top: 37px;
   color: var(--gold);
 }
-/* END */
-/* Contact me*/
+/* END Price */
+
+/* Contact me */
 .contact-bg {
   height: 700px;
   margin-top: 100px;
@@ -421,7 +487,7 @@ ul.nav-list {
 .contacts input:focus,
 .contacts textarea:focus {
   outline: 1px solid var(--gold);
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .contacts input:focus {
@@ -431,12 +497,12 @@ ul.nav-list {
 
 .contacts textarea:focus {
   padding-top: 12px;
-	line-height: 22px;
+  line-height: 22px;
 }
 
 .contacts input {
   height: 50px;
-	padding-left: 18px;
+  padding-left: 18px;
 }
 
 .contacts textarea {
@@ -458,7 +524,8 @@ ul.nav-list {
   color: var(--gold);
   margin-bottom: 62px;
 }
-/* END */
+/* END Contact me */
+
 /* Sprites */
 .bg-video {
   width: 60px;
@@ -483,4 +550,4 @@ ul.nav-list {
   height: 50px;
   background: url(./assets/png/css_sprites_skills.png) -90px -80px;
 }
-/* END */
+/* END Sprites */
