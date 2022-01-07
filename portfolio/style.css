@@ -167,7 +167,7 @@ a:hover {
 ul.nav-list {
   height: 50px;
   display: flex;
-	margin-right: 32px;
+  margin-right: 32px;
   gap: 30px;
   justify-content: space-around;
   align-items: center;
@@ -182,12 +182,12 @@ ul.nav-list {
 }
 
 .lang {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .lang-active {
-	color: var(--gold);
-	cursor: default;
+  color: var(--gold);
+  cursor: default;
 }
 
 /* END Header lang */
@@ -216,7 +216,7 @@ ul.nav-list {
 }
 
 .footer-data span a {
-	transition: color var(--trasition-0-3s);
+  transition: color var(--trasition-0-3s);
 }
 
 .footer-data span:first-child {
@@ -252,11 +252,11 @@ ul.social-list li {
 
 .rsschool-link {
   padding-left: 19px;
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .rsschool-link a {
-	transition: color var(--trasition-0-3s);
+  transition: color var(--trasition-0-3s);
 }
 /* END Footer */
 
@@ -294,8 +294,8 @@ ul.social-list li {
 }
 
 .btn-black-active {
-	color: var(--black);
-	background: var(--gold);
+  color: var(--black);
+  background: var(--gold);
 }
 
 .btn-price {
@@ -402,14 +402,17 @@ ul.social-list li {
 
 .video-player .icon {
   height: 130px;
-  width: 129.86485290527344px;
-  fill: var(--white);
-  cursor: pointer;
+  width: 130px;
+  background-color: transparent;
+  background: url(./assets/svg/Play_Unvisited.svg) no-repeat center;
+  border: none;
+	cursor: pointer;
   transition: var(--trasition-0-3s);
 }
 
 .video-player .icon:hover {
-  fill: var(--gold);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 /* END Video */
 
