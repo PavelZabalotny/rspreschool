@@ -102,8 +102,6 @@ a:hover {
 .container {
   width: 1440px; /* replace to max-width later */
   margin: 0 auto;
-  /*  padding: 0 20px; */
-  /* border: 1px solid red; */
 }
 
 .header-container {
@@ -112,7 +110,6 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center 0;
   padding: 20px 20px 0 20px;
-  /* position: relative; */
 }
 
 .hero {
@@ -168,14 +165,12 @@ a:hover {
 }
 
 ul.nav-list {
-  /*  width: 500px; */
   height: 50px;
   display: flex;
   gap: 30px;
   padding: 0 30px;
   justify-content: space-around;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 .switch-lng {
@@ -187,7 +182,6 @@ ul.nav-list {
 
 .lang {
   cursor: pointer;
-  /* letter-spacing: 2px; */
 }
 
 .lang:hover {
@@ -196,7 +190,6 @@ ul.nav-list {
 }
 
 .main {
-  /* background-color: rgba(93, 47, 153, 0.144); */
   flex: 1 0 auto;
 }
 
@@ -224,9 +217,9 @@ ul.nav-list {
 }
 
 .btn-black {
-	width: 220px;
-	height: 55px;
-	padding: 0;
+  width: 220px;
+  height: 55px;
+  padding: 0;
   background-color: transparent;
   color: var(--white);
   border: 2px solid var(--gold);
@@ -246,6 +239,11 @@ ul.nav-list {
 
 .hero button.btn {
   margin-top: 6px;
+}
+
+.contacts button {
+  padding: 7px 40px;
+  margin-top: 10px;
 }
 /* END */
 /* Sections */
@@ -270,7 +268,6 @@ ul.nav-list {
   background-color: var(--black);
 }
 /* END */
-
 /* Skills */
 .skills-items {
   display: flex;
@@ -283,7 +280,6 @@ ul.nav-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #bdae8227; */
 }
 
 .skill-title {
@@ -328,7 +324,6 @@ ul.nav-list {
   height: 705px;
   background: url(./assets/img/video-player.jpg) no-repeat center;
   margin-top: 59px;
-  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,13 +353,11 @@ ul.nav-list {
 }
 
 .product-card {
-		width: 450px;
-	height: 505px;
-  /* display: flex;
-	flex-direction: column; */
+  width: 450px;
+  height: 505px;
   border: 3px solid var(--gold);
-	padding-top: 50px;
-	padding-bottom: 40px;
+  padding-top: 50px;
+  padding-bottom: 40px;
 }
 
 .product-card button {
@@ -396,6 +389,76 @@ ul.nav-list {
   color: var(--gold);
 }
 /* END */
+/* Contact me*/
+.contact-bg {
+  height: 700px;
+  margin-top: 100px;
+  background: url(./assets/img/contacts.jpg) no-repeat center;
+  background-size: auto 700px;
+  padding-top: 0;
+}
+
+.contacts {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 82px;
+}
+
+.contacts input,
+.contacts textarea {
+  display: block;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--gold);
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.contacts input:focus,
+.contacts textarea:focus {
+  outline: 1px solid var(--gold);
+	font-size: 20px;
+}
+
+.contacts input:focus {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.contacts textarea:focus {
+  padding-top: 12px;
+	line-height: 22px;
+}
+
+.contacts input {
+  height: 50px;
+	padding-left: 18px;
+}
+
+.contacts textarea {
+  height: 100px;
+  resize: none;
+  padding: 5px 18px;
+}
+
+.contacts input::placeholder,
+.contacts textarea::placeholder {
+  font-family: inherit;
+  color: var(--gold);
+  font-size: 20px;
+}
+
+.contacts h2 {
+  font-family: Merriweather;
+  font-size: 40px;
+  color: var(--gold);
+  margin-bottom: 62px;
+}
+/* END */
 /* Sprites */
 .bg-video {
   width: 60px;
@@ -420,4 +483,4 @@ ul.nav-list {
   height: 50px;
   background: url(./assets/png/css_sprites_skills.png) -90px -80px;
 }
-/*END*/
+/* END */
