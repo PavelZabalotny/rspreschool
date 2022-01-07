@@ -281,14 +281,18 @@ ul.social-list li {
   height: 55px;
   padding: 0;
   background-color: transparent;
-  color: var(--white);
+  color: var(--gold);
   border: 2px solid var(--gold);
 }
 
 .btn-black:hover {
-  color: var(--black);
-  background: var(--gold);
+  color: var(--white);
   transition: none;
+}
+
+.btn-black-active {
+	color: var(--black);
+	background: var(--gold);
 }
 
 .btn-price {
