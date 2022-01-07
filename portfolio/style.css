@@ -104,6 +104,7 @@ a:hover {
   margin: 0 auto;
 }
 
+/* Header */
 .header-container {
   height: 910px;
   background: url('./assets/img/header-bg.jpg');
@@ -112,6 +113,13 @@ a:hover {
   padding: 20px 20px 0 20px;
 }
 
+.header-top {
+  display: flex;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+/* Hero */
 .hero {
   width: 500px;
   height: 330px;
@@ -140,13 +148,9 @@ a:hover {
   text-align: left;
   padding: 25px 15px 20px 0;
 }
+/* END Hero */
 
-.header-top {
-  display: flex;
-  font-size: 20px;
-  line-height: 50px;
-}
-
+/* Logo */
 .logo {
   width: 50px;
   height: 50px;
@@ -159,7 +163,9 @@ a:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
+/* END Logo */
 
+/* Nav */
 .nav {
   margin-left: auto;
 }
@@ -172,6 +178,7 @@ ul.nav-list {
   justify-content: space-around;
   align-items: center;
 }
+/* END Nav */
 
 /* Header lang */
 .switch-lng {
@@ -189,12 +196,14 @@ ul.nav-list {
   color: var(--gold);
   cursor: default;
 }
-
 /* END Header lang */
+/* END Header */
 
+/* Main */
 .main {
   flex: 1 0 auto;
 }
+/* END Main */
 
 /* Footer */
 .footer .container {
@@ -204,6 +213,7 @@ ul.nav-list {
   align-items: center;
 }
 
+/* Footer data */
 .footer-data {
   height: 50px;
   display: flex;
@@ -223,6 +233,9 @@ ul.nav-list {
   font-size: 18px;
   padding-left: 20px;
 }
+/* END Footer data */
+
+/* Social */
 .social-list {
   height: 50px;
   display: flex;
@@ -249,7 +262,9 @@ ul.social-list li {
   fill: var(--gold);
   transition: fill var(--trasition-0-3s);
 }
+/* END Social */
 
+/* RSSchool */
 .rsschool-link {
   padding-left: 19px;
   font-size: 20px;
@@ -258,6 +273,7 @@ ul.social-list li {
 .rsschool-link a {
   transition: color var(--trasition-0-3s);
 }
+/* END RSSchool */
 /* END Footer */
 
 /* Button style */
