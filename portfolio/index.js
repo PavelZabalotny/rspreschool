@@ -1,4 +1,5 @@
-console.log(`1) Вёрстка валидная +10
+console.log(`Task: portfolio#1
+1) Вёрстка валидная +10
 2) Вёрстка семантическая +20
 2.1) В коде странице присутствуют следующие элементы (указано минимальное количество, может быть больше):
 <header>, <main>, <footer> +2
@@ -34,3 +35,24 @@ console.log(`1) Вёрстка валидная +10
 5.4) обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы +5
 
 ИТОГО: 110 баллов`)
+
+/**
+ * Humburger menu
+ */
+const menu = document.querySelector('#hamburger-12')
+const nav = document.querySelector('.nav')
+
+menu?.addEventListener('click', function () {
+  this.classList.toggle('is-active')
+  nav?.classList.toggle('is-open')
+})
+
+nav?.addEventListener('click', function (e) {
+  if (e.target.classList.contains('nav-link')) {
+    this.classList.remove('is-open')
+    menu?.classList.remove('is-active')
+  }
+})
+/**
+ * END Humburger menu
+ */

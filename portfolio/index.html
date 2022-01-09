@@ -15,7 +15,7 @@
     />
     <!-- END -->
     <link rel="stylesheet" href="./style.css" />
-		<script src="./index.js"></script>
+    <script src="./index.js" defer></script>
     <title>Portfolio</title>
   </head>
   <body>
@@ -26,11 +26,21 @@
             <a class="logo" href="#"></a>
             <nav class="nav">
               <ul class="nav-list">
-                <li class="nav-item"><a href="#skills">Skills</a></li>
-                <li class="nav-item"><a href="#portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="#video">Video</a></li>
-                <li class="nav-item"><a href="#price">Price</a></li>
-                <li class="nav-item"><a href="#contacts">Contacts</a></li>
+                <li class="nav-item">
+                  <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#video" class="nav-link">Video</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#price" class="nav-link">Price</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#contacts" class="nav-link">Contacts</a>
+                </li>
               </ul>
             </nav>
             <div class="switch-lng">
@@ -38,6 +48,13 @@
               <span>/</span>
               <span class="lang">ru</span>
             </div>
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger-12">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+            <!-- END Hamburger -->
           </div>
         </div>
       </div>
@@ -199,7 +216,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-data">
-          <span>@</span>
+          <span>&copy</span>
           <span>2022</span>
           <span
             ><a href="https://github.com/PavelZabalotny" target="_blank"
