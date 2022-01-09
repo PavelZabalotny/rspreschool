@@ -803,6 +803,10 @@ ul.social-list li {
   /* END Contact me */
 
   /* Footer */
+	.footer {
+		padding-bottom: 40px;
+	}
+	
   .footer .container {
     flex-direction: column;
     padding-top: 15px;
@@ -860,26 +864,6 @@ ul.social-list li {
   .hamburger:hover {
     cursor: pointer;
   }
-
-/*   #hamburger-12.is-active {
-    position: fixed;
-  }
-
-  #hamburger-12.is-active .line:nth-child(1) {
-    opacity: 0;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-
-  #hamburger-12.is-active .line:nth-child(3) {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    -o-transform: translateX(100%);
-    transform: translateX(100%);
-  } */
 
 	#hamburger-1.is-active {
     position: fixed;
