@@ -39,7 +39,7 @@ console.log(`Task: portfolio#1
 /**
  * Humburger menu
  */
-const menu = document.querySelector('#hamburger-12')
+const menu = document.querySelector('#hamburger-1')
 const nav = document.querySelector('.nav')
 
 menu?.addEventListener('click', function () {
