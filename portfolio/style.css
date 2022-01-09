@@ -625,11 +625,11 @@ ul.social-list li {
   /* Nav */
   .nav {
     width: 603px;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     background-color: var(--black);
     top: 0;
-    right: -603px;
+    right: -620px;
     padding-top: 142px;
     transition: 0.5s;
   }
@@ -844,7 +844,7 @@ ul.social-list li {
   }
 
   .hamburger {
-    position: absolute;
+    position: fixed;
     top: 21px;
     right: 47px;
     z-index: 20;
@@ -865,9 +865,9 @@ ul.social-list li {
     cursor: pointer;
   }
 
-	#hamburger-1.is-active {
+	/* #hamburger-1.is-active {
     position: fixed;
-  }
+  } */
 
   #hamburger-1.is-active .line:nth-child(2) {
     opacity: 0;
@@ -894,6 +894,7 @@ ul.social-list li {
 @media (max-width: 620px) {
   .nav {
     width: 100%;
+		right: -100%;
   }
 }
 /* END Media Queries 620px */
