@@ -1,4 +1,6 @@
-console.log(`Task: portfolio#1
+import i18Obj from './js/translate.js'
+
+/* console.log(`Task: portfolio#1
 1) Вёрстка валидная +10
 2) Вёрстка семантическая +20
 2.1) В коде странице присутствуют следующие элементы (указано минимальное количество, может быть больше):
@@ -34,7 +36,7 @@ console.log(`Task: portfolio#1
 5.3) интерактивность включает в себя не только изменение внешнего вида курсора, например, при помощи свойства cursor: pointer, но и другие визуальные эффекты, например, изменение цвета фона или цвета шрифта. Если в макете указаны стили при наведении и клике, для элемента указываем эти стили. Если в макете стили не указаны, реализуете их по своему усмотрению, руководствуясь общим стилем макета +5
 5.4) обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы +5
 
-ИТОГО: 110 баллов`)
+ИТОГО: 110 баллов`) */
 
 /**
  * Humburger menu
@@ -57,7 +59,7 @@ nav?.addEventListener('click', function (e) {
  * END Humburger menu
  */
 
-console.log(`1. Вёрстка соответствует макету. Ширина экрана 768px +48
+/* console.log(`1. Вёрстка соответствует макету. Ширина экрана 768px +48
 блок <header> +6
 секция hero +6
 секция skills +6
@@ -81,7 +83,7 @@ console.log(`1. Вёрстка соответствует макету. Шири
 ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +2
 при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4
 
-ИТОГО: 85 баллов`)
+ИТОГО: 85 баллов`) */
 
 /**
  * Change img in portfolio section
@@ -123,8 +125,33 @@ function resetActiveClass(linkOnElements, activeClass) {
     btn.classList.remove(activeClass)
   })
 }
-// auto click on button with autumn season 
+// auto click on button with autumn season
 portfolioBtns[3].click()
+/**
+ * END
+ */
+
+/**
+ * translate
+ */
+const elementsToTranslate = document.querySelectorAll('[data-i18n]')
+const langButton = document.querySelector('.switch-lng')
+const langButtons = document.querySelectorAll('.lang')
+
+function getTranslate(language = 'en') {
+  elementsToTranslate.forEach((el) => {
+    let dataValue = el.dataset.i18n // skills, portfolio
+    el.textContent = i18Obj[language][dataValue]
+  })
+}
+
+langButton?.addEventListener('click', function (e) {
+	if (e.target?.classList.contains('lang')) {
+		resetActiveClass(langButtons, 'lang-active')
+		changeActiveClass(e.target, 'lang-active')
+		getTranslate(e.target.innerHTML)
+	}
+})
 /**
  * END
  */
