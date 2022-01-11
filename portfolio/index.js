@@ -106,7 +106,6 @@ portfolioBtn?.addEventListener('click', (e) => {
     portfolioImgs.forEach((img, i) => {
       img.src = `./assets/img/${e.target?.dataset.season}/${++i}.jpg`
     })
-
     // reset active class from button
     const btnActiveClass = 'btn-black-active'
     resetActiveClass(portfolioBtns, btnActiveClass)
@@ -124,6 +123,8 @@ function resetActiveClass(linkOnElements, activeClass) {
     btn.classList.remove(activeClass)
   })
 }
+// auto click on button with autumn season 
+portfolioBtns[3].click()
 /**
  * END
  */
