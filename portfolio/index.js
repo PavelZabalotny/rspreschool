@@ -48,7 +48,7 @@ menu?.addEventListener('click', function () {
 })
 
 nav?.addEventListener('click', function (e) {
-  if (e.target.classList.contains('nav-link')) {
+  if (e.target?.classList.contains('nav-link')) {
     this.classList.remove('is-open')
     menu?.classList.remove('is-active')
   }
@@ -82,3 +82,48 @@ console.log(`1. Вёрстка соответствует макету. Шири
 при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4
 
 ИТОГО: 85 баллов`)
+
+/**
+ * Change img in portfolio section
+ */
+const seasons = ['winter', 'spring', 'summer', 'autumn']
+
+// image caching
+seasons.forEach((season) => {
+  for (let i = 1; i <= 6; i++) {
+    const img = new Image()
+    img.src = `./assets/img/${season}/${i}.jpg`
+  }
+})
+
+const portfolioBtn = document.querySelector('.portfolio-btns')
+const portfolioImgs = document.querySelectorAll('.portfolio-img')
+const portfolioBtns = document.querySelectorAll('.portfolio-btn')
+
+portfolioBtn?.addEventListener('click', (e) => {
+  if (e.target?.classList.contains('portfolio-btn')) {
+    // change img
+    portfolioImgs.forEach((img, i) => {
+      img.src = `./assets/img/${e.target?.dataset.season}/${++i}.jpg`
+    })
+
+    // reset active class from button
+    const btnActiveClass = 'btn-black-active'
+    resetActiveClass(portfolioBtns, btnActiveClass)
+    // add active class
+    changeActiveClass(e.target, btnActiveClass)
+  }
+})
+// add active class
+function changeActiveClass(linkOnElement, activeClass) {
+  linkOnElement.classList.add(activeClass)
+}
+// reset active class from button
+function resetActiveClass(linkOnElements, activeClass) {
+  linkOnElements.forEach((btn) => {
+    btn.classList.remove(activeClass)
+  })
+}
+/**
+ * END
+ */
