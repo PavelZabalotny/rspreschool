@@ -146,11 +146,34 @@ function getTranslate(language = 'en') {
 }
 
 langButton?.addEventListener('click', function (e) {
-	if (e.target?.classList.contains('lang')) {
-		resetActiveClass(langButtons, 'lang-active')
-		changeActiveClass(e.target, 'lang-active')
-		getTranslate(e.target.innerHTML)
-	}
+  if (e.target?.classList.contains('lang')) {
+    resetActiveClass(langButtons, 'lang-active')
+    changeActiveClass(e.target, 'lang-active')
+    getTranslate(e.target.innerHTML)
+  }
+})
+/**
+ * END
+ */
+
+/**
+ * Switch theme
+ */
+const switchThemeBtn = document.querySelector('.switch-theme')
+let themeColor = switchThemeBtn.dataset.theme
+
+switchThemeBtn?.addEventListener('click', function () {
+  if (themeColor !== 'light') {
+    document.documentElement.style.setProperty('--body-color', '#fff')
+    document.documentElement.style.setProperty('--text-color', '#000')
+    document.documentElement.style.setProperty('--hover-color', '#000')
+    themeColor = 'light'
+  } else {
+    document.documentElement.style.setProperty('--body-color', '#000')
+    document.documentElement.style.setProperty('--text-color', '#fff')
+    document.documentElement.style.setProperty('--hover-color', '#fff')
+    themeColor = 'dark'
+  }
 })
 /**
  * END
