@@ -134,6 +134,7 @@ portfolioBtns[3].click()
 /**
  * translate
  */
+// default global language
 let lang = 'en'
 const elementsToTranslate = document.querySelectorAll('[data-i18n]')
 const langButton = document.querySelector('.switch-lng')
@@ -176,31 +177,45 @@ window.addEventListener('beforeunload', setLocalStorage)
 /**
  * Switch theme
  */
+// default global theme
 let theme = 'dark'
 const switchThemeBtn = document.querySelector('.switch-theme')
 
-let light = [
-  { '--body-color': '#000' },
-  { '--text-color': '#fff' },
-  { '--hover-color': '#fff' },
+// evaluate css variables
+let colorSсheme = () => [
+  { '--body-color': theme !== 'dark' ? '#fff' : '#000' },
+  { '--text-color': theme !== 'dark' ? '#000' : '#fff' },
+  { '--hover-color': theme !== 'dark' ? '#000' : '#fff' },
 ]
 
 function switchTheme(array = []) {
-  const newArr = []
-
-  array.forEach((obj) => {
-    let [key] = Object.entries(obj)
-    let newValue = key[1] === '#fff' ? '#000' : '#fff'
-    newArr.push({ [key[0]]: newValue })
-    document.documentElement.style.setProperty(key[0], newValue)
+	array.forEach((obj) => {
+    // cssObj =  ['--body-color', '#fff']
+    let [cssObj] = Object.entries(obj)
+    // key = '--body-color'; value = '#fff'
+    let [key, value] = cssObj
+    // set css variable like --body-color: #fff
+    document.documentElement.style.setProperty(key, value)
   })
-
-  return newArr
 }
 
 switchThemeBtn?.addEventListener('click', function () {
-  light = switchTheme(light)
+  theme = theme === 'dark' ? 'light' : 'dark'
+  switchTheme(colorSсheme())
 })
+
+function setThemeToLocalStorage() {
+  localStorage.setItem('theme', theme)
+}
+window.addEventListener('beforeunload', setThemeToLocalStorage)
+
+function getThemeFromLocalStorage() {
+  if (localStorage.getItem('theme')) {
+    theme = localStorage.getItem('theme')
+    switchTheme(colorSсheme())
+  }
+}
+window.addEventListener('load', getThemeFromLocalStorage)
 /**
  * END
  */
