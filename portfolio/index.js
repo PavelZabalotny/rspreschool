@@ -134,24 +134,41 @@ portfolioBtns[3].click()
 /**
  * translate
  */
+let lang = 'en'
 const elementsToTranslate = document.querySelectorAll('[data-i18n]')
 const langButton = document.querySelector('.switch-lng')
 const langButtons = document.querySelectorAll('.lang')
+const langRus = document.querySelector('.lang-ru')
+const langEng = document.querySelector('.lang-en')
+
+function getLocalStorage() {
+  if (localStorage.getItem('lang')) {
+    lang = localStorage.getItem('lang')
+    getTranslate(lang)
+  }
+}
+window.addEventListener('load', getLocalStorage)
 
 function getTranslate(language = 'en') {
+  resetActiveClass(langButtons, 'lang-active')
+  const activeLang = language === 'en' ? langEng : langRus
+  changeActiveClass(activeLang, 'lang-active')
+
   elementsToTranslate.forEach((el) => {
-    let dataValue = el.dataset.i18n // skills, portfolio
+    let dataValue = el.dataset.i18n
     el.textContent = i18Obj[language][dataValue]
   })
 }
 
 langButton?.addEventListener('click', function (e) {
-  if (e.target?.classList.contains('lang')) {
-    resetActiveClass(langButtons, 'lang-active')
-    changeActiveClass(e.target, 'lang-active')
-    getTranslate(e.target.innerHTML)
-  }
+  lang = e.target?.innerHTML
+  getTranslate(lang)
 })
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang)
+}
+window.addEventListener('beforeunload', setLocalStorage)
 /**
  * END
  */
@@ -159,21 +176,30 @@ langButton?.addEventListener('click', function (e) {
 /**
  * Switch theme
  */
+let theme = 'dark'
 const switchThemeBtn = document.querySelector('.switch-theme')
-let themeColor = switchThemeBtn.dataset.theme
+
+let light = [
+  { '--body-color': '#000' },
+  { '--text-color': '#fff' },
+  { '--hover-color': '#fff' },
+]
+
+function switchTheme(array = []) {
+  const newArr = []
+
+  array.forEach((obj) => {
+    let [key] = Object.entries(obj)
+    let newValue = key[1] === '#fff' ? '#000' : '#fff'
+    newArr.push({ [key[0]]: newValue })
+    document.documentElement.style.setProperty(key[0], newValue)
+  })
+
+  return newArr
+}
 
 switchThemeBtn?.addEventListener('click', function () {
-  if (themeColor !== 'light') {
-    document.documentElement.style.setProperty('--body-color', '#fff')
-    document.documentElement.style.setProperty('--text-color', '#000')
-    document.documentElement.style.setProperty('--hover-color', '#000')
-    themeColor = 'light'
-  } else {
-    document.documentElement.style.setProperty('--body-color', '#000')
-    document.documentElement.style.setProperty('--text-color', '#fff')
-    document.documentElement.style.setProperty('--hover-color', '#fff')
-    themeColor = 'dark'
-  }
+  light = switchTheme(light)
 })
 /**
  * END
