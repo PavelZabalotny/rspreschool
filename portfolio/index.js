@@ -189,7 +189,7 @@ let colorSсheme = () => [
 ]
 
 function switchTheme(array = []) {
-	array.forEach((obj) => {
+  array.forEach((obj) => {
     // cssObj =  ['--body-color', '#fff']
     let [cssObj] = Object.entries(obj)
     // key = '--body-color'; value = '#fff'
@@ -218,4 +218,35 @@ function getThemeFromLocalStorage() {
 window.addEventListener('load', getThemeFromLocalStorage)
 /**
  * END
+ */
+
+/**
+ * Button ripple
+ */
+document.body.addEventListener('click', function (e) {
+  if (e.target.classList.contains('ripple')) {
+    const x = e.pageX
+		const y = e.pageY
+		
+		console.log(x);
+		console.log(y);
+
+    const buttonTop = e.target.offsetTop
+    const buttonLeft = e.target.offsetLeft
+
+    const xInside = x - buttonLeft
+    const yInside = y - buttonTop
+
+    const circle = document.createElement('span')
+    circle.classList.add('circle')
+    circle.style.top = yInside + 'px'
+    circle.style.left = xInside + 'px'
+
+    e.target.appendChild(circle)
+
+		setTimeout(() => circle.remove(), 500)
+  }
+})
+/**
+ * END Button ripple
  */
