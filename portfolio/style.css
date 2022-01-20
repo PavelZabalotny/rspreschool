@@ -7,6 +7,7 @@
   --text-color: #ffffff;
   --hover-color: #ffffff;
   --trasition-0-3s: 0.3s;
+  --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
   --font-size-24: 24px;
@@ -138,9 +139,7 @@ a:hover {
 /* Header */
 .header-container {
   height: 90px;
-  background: url('./assets/img/header-bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
+  background: url('./assets/img/header-bg.jpg') no-repeat center 0;
   padding: 20px 20px 0 20px;
 }
 
@@ -316,7 +315,7 @@ ul.social-list li {
 
 .btn-price {
   padding: 7px 39px;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-weight: normal;
 }
 
@@ -347,7 +346,7 @@ ul.social-list li {
 }
 
 .section-title h2 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-size: var(--font-size-40);
   line-height: 80px;
   color: var(--gold);
@@ -376,7 +375,7 @@ ul.social-list li {
 }
 
 .hero h1 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-style: normal;
   font-weight: bold;
   font-size: var(--font-size-60);
@@ -385,7 +384,7 @@ ul.social-list li {
 }
 
 .hero-description {
-  font-family: Inter;
+  font-family: Inter, serif;
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-20);
@@ -422,7 +421,7 @@ ul.social-list li {
 }
 /* END Skills */
 
-/* Porftolio */
+/* Portfolio */
 .portfolio-btns {
   margin-top: 60px;
   display: flex;
@@ -445,7 +444,7 @@ ul.social-list li {
   margin-left: 25px;
   margin-bottom: 25px;
 }
-/* END Porftolio */
+/* END Portfolio */
 
 /* Video */
 #video {
@@ -465,8 +464,7 @@ ul.social-list li {
 .video-player .icon {
   height: 130px;
   width: 130px;
-  background-color: transparent;
-  background: url(./assets/svg/Play_Unvisited.svg) no-repeat center;
+  background: transparent url(./assets/svg/Play_Unvisited.svg) no-repeat center;
   border: none;
   cursor: pointer;
   transition: var(--trasition-0-3s);
@@ -501,10 +499,7 @@ ul.social-list li {
   /* width: 450px; */
   /* height: 505px; */
   border: 3px solid var(--gold);
-  padding-top: 50px;
-  padding-bottom: 40px;
-  padding-left: 7.77%;
-  padding-right: 7.77%;
+  padding: 50px 7.77% 40px;
 }
 
 .product-card button {
@@ -516,12 +511,12 @@ ul.social-list li {
 }
 
 .price-description span {
-  font-family: Inter;
+  font-family: Inter, serif;
   font-weight: normal;
 }
 
 .product-card {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-style: normal;
   font-weight: bold;
 }
@@ -600,7 +595,7 @@ ul.social-list li {
 }
 
 .contacts h2 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-size: var(--font-size-40);
   color: var(--gold);
   margin-bottom: 62px;
@@ -831,9 +826,8 @@ ul.social-list li {
   }
 
   .contacts {
-    margin: 0 auto;
     align-items: center;
-    margin-top: 74px;
+    margin: 74px auto 0;
   }
 
   .contacts h2 {

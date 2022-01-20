@@ -39,7 +39,7 @@ import i18Obj from './js/translate.js'
 ИТОГО: 110 баллов`) */
 
 /**
- * Humburger menu
+ * Hamburger menu
  */
 const menu = document.querySelector('#hamburger-1')
 const nav = document.querySelector('.nav')
@@ -56,7 +56,7 @@ nav?.addEventListener('click', function (e) {
   }
 })
 /**
- * END Humburger menu
+ * END Hamburger menu
  */
 
 /* console.log(`1. Вёрстка соответствует макету. Ширина экрана 768px +48
@@ -182,7 +182,7 @@ let theme = 'dark'
 const switchThemeBtn = document.querySelector('.switch-theme')
 
 // evaluate css variables
-let colorSсheme = () => [
+let colorScheme = () => [
   { '--body-color': theme !== 'dark' ? '#fff' : '#000' },
   { '--text-color': theme !== 'dark' ? '#000' : '#fff' },
   { '--hover-color': theme !== 'dark' ? '#000' : '#fff' },
@@ -193,7 +193,7 @@ function switchTheme(array = []) {
     // cssObj =  ['--body-color', '#fff']
     let [cssObj] = Object.entries(obj)
     // key = '--body-color'; value = '#fff'
-    let [key, value] = cssObj
+    let [key, value = ''] = cssObj
     // set css variable like --body-color: #fff
     document.documentElement.style.setProperty(key, value)
   })
@@ -201,7 +201,7 @@ function switchTheme(array = []) {
 
 switchThemeBtn?.addEventListener('click', function () {
   theme = theme === 'dark' ? 'light' : 'dark'
-  switchTheme(colorSсheme())
+  switchTheme(colorScheme())
 })
 
 function setThemeToLocalStorage() {
@@ -212,7 +212,7 @@ window.addEventListener('beforeunload', setThemeToLocalStorage)
 function getThemeFromLocalStorage() {
   if (localStorage.getItem('theme')) {
     theme = localStorage.getItem('theme')
-    switchTheme(colorSсheme())
+    switchTheme(colorScheme())
   }
 }
 window.addEventListener('load', getThemeFromLocalStorage)
