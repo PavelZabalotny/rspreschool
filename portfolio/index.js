@@ -339,10 +339,10 @@ video.addEventListener('ended', function () {
   playIcon.classList.toggle('pause-icon')
 })
 
-progress.addEventListener('click', function(e) {
-  let rect = this.getBoundingClientRect();
-  let pos = (e.pageX  - rect.left) / this.offsetWidth;
-  video.currentTime = pos * video.duration;
+progress.addEventListener('click', function (e) {
+  let rect = this.getBoundingClientRect()
+  let pos = (e.pageX - rect.left) / this.offsetWidth
+  video.currentTime = pos * video.duration
 })
 
 volume.addEventListener('click', function () {
@@ -350,10 +350,10 @@ volume.addEventListener('click', function () {
   video.muted = !video.muted
 })
 
-volumeProgress.addEventListener('click', function(e) {
-  let rect = this.getBoundingClientRect();
-  let pos = (e.pageX  - rect.left) / this.offsetWidth;
-  this.value = video.volume = pos;
+volumeProgress.addEventListener('input', function () {
+  let gradient = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value * 100}%, #c8c8c8 40%, #c8c8c8 100%)`
+  video.volume = this.value
+  this.style.background = gradient
 })
 
 /**

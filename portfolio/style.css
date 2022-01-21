@@ -1216,7 +1216,7 @@ button:focus {
   display: none;
   align-items: center;
   background-color: #000000;
-  opacity: 0;
+  opacity: 1;
   border: 1px solid transparent;
   transition: opacity 1s ease-in-out;
 }
@@ -1227,9 +1227,13 @@ button:focus {
   margin-right: 2%;
 }
 
+.play-icon,
+.volume-icon {
+  width: 3%;
+  height: 100%;
+}
+
 .play-icon {
-  width: 36px;
-  height: 36px;
   background: url(./assets/svg/custom-video/play.svg) no-repeat center;
   background-size: contain;
   transition: 0.3s;
@@ -1238,13 +1242,15 @@ button:focus {
 .progress {
   width: 70%;
   height: 50%;
-  border: 1px solid var(--black);
+  background-color: #bdae82;
+  -webkit-appearance: none;
 }
 
 .volume-progress {
   width: 20%;
-  height: 50%;
-  border: 1px solid var(--black)
+  height: 30%;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, #bdae82 0%, #bdae82 100%, #c8c8c8 40%, #c8c8c8 100%);
 }
 
 .pause-icon {
@@ -1252,8 +1258,6 @@ button:focus {
 }
 
 .volume-icon {
-  width: 36px;
-  height: 36px;
   background: url(./assets/svg/custom-video/volume.svg) no-repeat center;
   background-size: contain;
   transition: 0.3s;
