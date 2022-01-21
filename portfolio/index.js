@@ -115,16 +115,19 @@ portfolioBtn?.addEventListener('click', (e) => {
     changeActiveClass(e.target, btnActiveClass)
   }
 })
+
 // add active class
 function changeActiveClass(linkOnElement, activeClass) {
   linkOnElement.classList.add(activeClass)
 }
+
 // reset active class from button
 function resetActiveClass(linkOnElements, activeClass) {
   linkOnElements.forEach((btn) => {
     btn.classList.remove(activeClass)
   })
 }
+
 // auto click on button with autumn season
 portfolioBtns[3].click()
 /**
@@ -148,6 +151,7 @@ function getLocalStorage() {
     getTranslate(lang)
   }
 }
+
 window.addEventListener('load', getLocalStorage)
 
 function getTranslate(language = 'en') {
@@ -169,6 +173,7 @@ langButton?.addEventListener('click', function (e) {
 function setLocalStorage() {
   localStorage.setItem('lang', lang)
 }
+
 window.addEventListener('beforeunload', setLocalStorage)
 /**
  * END
@@ -183,9 +188,9 @@ const switchThemeBtn = document.querySelector('.switch-theme')
 
 // evaluate css variables
 let colorScheme = () => [
-  { '--body-color': theme !== 'dark' ? '#fff' : '#000' },
-  { '--text-color': theme !== 'dark' ? '#000' : '#fff' },
-  { '--hover-color': theme !== 'dark' ? '#000' : '#fff' },
+  {'--body-color': theme !== 'dark' ? '#fff' : '#000'},
+  {'--text-color': theme !== 'dark' ? '#000' : '#fff'},
+  {'--hover-color': theme !== 'dark' ? '#000' : '#fff'},
 ]
 
 function switchTheme(array = []) {
@@ -207,6 +212,7 @@ switchThemeBtn?.addEventListener('click', function () {
 function setThemeToLocalStorage() {
   localStorage.setItem('theme', theme)
 }
+
 window.addEventListener('beforeunload', setThemeToLocalStorage)
 
 function getThemeFromLocalStorage() {
@@ -215,6 +221,7 @@ function getThemeFromLocalStorage() {
     switchTheme(colorScheme())
   }
 }
+
 window.addEventListener('load', getThemeFromLocalStorage)
 /**
  * END
@@ -226,10 +233,10 @@ window.addEventListener('load', getThemeFromLocalStorage)
 document.body.addEventListener('click', function (e) {
   if (e.target.classList.contains('ripple')) {
     const x = e.pageX
-		const y = e.pageY
-		
-		console.log(x);
-		console.log(y);
+    const y = e.pageY
+
+    console.log(x)
+    console.log(y)
 
     const buttonTop = e.target.offsetTop
     const buttonLeft = e.target.offsetLeft
@@ -244,9 +251,114 @@ document.body.addEventListener('click', function (e) {
 
     e.target.appendChild(circle)
 
-		setTimeout(() => circle.remove(), 500)
+    setTimeout(() => circle.remove(), 500)
   }
 })
 /**
  * END Button ripple
+ */
+
+/**
+ * Video player
+ */
+const playButton = document.querySelector('.play-button')
+const video = document.querySelector('.video')
+const poster = document.querySelector('.poster')
+const controlPanel = document.querySelector('.control-panel')
+const playIcon = document.querySelector('.play-icon')
+const progress = document.querySelector('.progress')
+
+playButton.addEventListener('click', function () {
+  this.classList.add('d-none')
+  poster.classList.add('opacity-0')
+  controlPanel.classList.add('d-flex')
+  playIcon.classList.toggle('pause-icon')
+  video.classList.add('cursor-pointer')
+  playIcon.classList.add('cursor-pointer')
+  progress.classList.add('cursor-pointer')
+  video.play()
+  setTimeout(() => {
+    poster.classList.add('d-none')
+  }, 1000)
+})
+
+function togglePlay(target) {
+  if (target.paused || target.ended) {
+    target.play()
+  } else {
+    target.pause()
+  }
+}
+
+video.addEventListener('click', function () {
+  playIcon.classList.toggle('pause-icon')
+  togglePlay(this)
+})
+
+const targetForEvent = [
+  {
+    target: video,
+    events: ['mouseenter', 'mouseleave'],
+  },
+  {
+    target: controlPanel,
+    events: ['mouseenter', 'mouseleave'],
+  },
+]
+
+targetForEvent.forEach(({target, events}) => {
+  events.forEach(oneEvent => {
+    target.addEventListener(oneEvent, function () {
+      target.classList.toggle('opacity-1')
+    })
+  })
+})
+
+/*
+video.addEventListener('mouseenter', function () {
+  controlPanel.classList.toggle('opacity-1')
+})
+
+video.addEventListener('mouseleave', function () {
+  controlPanel.classList.toggle('opacity-1')
+})
+
+controlPanel.addEventListener('mouseenter', function () {
+  this.classList.toggle('opacity-1')
+})
+
+controlPanel.addEventListener('mouseleave', function () {
+  this.classList.toggle('opacity-1')
+})
+*/
+
+playIcon.addEventListener('click', function () {
+  this.classList.toggle('pause-icon')
+  togglePlay(video)
+})
+
+video.addEventListener('loadedmetadata', function () {
+  progress.setAttribute('max', this.duration)
+})
+
+video.addEventListener('timeupdate', function () {
+  if (!progress.getAttribute('max')) {
+    progress.setAttribute('max', this.duration)
+  }
+  progress.value = this.currentTime
+})
+
+video.addEventListener('ended', function () {
+  playIcon.classList.toggle('pause-icon')
+})
+
+progress.addEventListener('click', function(e) {
+  let rect = this.getBoundingClientRect();
+  let pos = (e.pageX  - rect.left) / this.offsetWidth;
+  video.currentTime = pos * video.duration;
+})
+
+
+/**
+ * END Video player
  */

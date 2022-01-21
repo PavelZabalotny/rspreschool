@@ -164,18 +164,26 @@
             <img src="#" alt="portfolio img" class="portfolio-img" />
           </div>
         </div>
-
+        
+        <!-- TODO Implement custom video player -->
         <div id="video" class="section">
           <div class="section-title"><h2 data-i18n="video">Video</h2></div>
-          <video
-                  class="video-player"
-                  src="./assets/video/video.mp4"
-                  poster="./assets/img/video-player.jpg"
-                  controls
-          >
-            <!--<button class="icon"></button>-->
-          </video>
+          
+          <div class="video-player">
+            <div class="poster"></div>
+  
+            <video
+                    class="video"
+                    src="./assets/video/video.mp4"
+            ></video>
+            <button class="icon play-button"></button>
+            <div class="control-panel">
+              <div class="play-icon"></div>
+              <progress class="progress" value="0"></progress>
+            </div>
+          </div>
         </div>
+        <!-- END -->
 
         <div id="price" class="section">
           <div class="section-title">

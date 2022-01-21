@@ -452,16 +452,39 @@ ul.social-list li {
 }
 
 .video-player {
-  width: 100%;
+  /*width: 1400px;*/
+  max-width: 1400px;
   max-height: 705px;
   /*background: url(./assets/img/video-player.jpg) no-repeat center;*/
   margin-top: 59px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  background: #fff;
+}
+
+.poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: url(./assets/img/video-player.jpg) no-repeat center;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.video {
+  width: 100%;
+  border: 1px solid transparent;
 }
 
 .video-player .icon {
+  position: absolute;
+  z-index: 999;
   height: 130px;
   width: 130px;
   background: transparent url(./assets/svg/Play_Unvisited.svg) no-repeat center;
@@ -663,6 +686,7 @@ ul.social-list li {
     width: 603px;
     height: 100%;
     position: fixed;
+    z-index: 2;
     background-color: var(--black);
     top: 0;
     right: -620px;
@@ -788,7 +812,7 @@ ul.social-list li {
   }
   .video-player {
     width: 100%;
-    height: 418px;
+    height: auto;
     margin-top: 50px;
     background-size: cover;
     background-position: -5px 0;
@@ -1089,7 +1113,6 @@ ul.social-list li {
   }
 
   .video-player {
-    height: 17rem;
     margin: 0;
     background-position: 0;
   }
@@ -1180,3 +1203,59 @@ button:focus {
   }
 }
 /* END Button ripple */
+
+/* Video player */
+.control-panel {
+  padding: 1% 2%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  opacity: 1;
+  border: 1px solid transparent;
+  transition: opacity 1s ease-in-out;
+}
+
+.play-icon {
+  width: 36px;
+  height: 36px;
+  background: url(./assets/svg/custom-video/play.svg) no-repeat center;
+  background-size: contain;
+  transition: 0.3s;
+  margin-right: 2%;
+}
+
+.progress {
+  width: 50%;
+  height: 50%;
+  border: 1px solid var(--black);
+}
+
+.pause-icon {
+  background: url(./assets/svg/custom-video/pause.svg) no-repeat center;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
