@@ -268,6 +268,7 @@ const controlPanel = document.querySelector('.control-panel')
 const playIcon = document.querySelector('.play-icon')
 const progress = document.querySelector('.progress')
 const volume = document.querySelector('.volume-icon')
+const volumeProgress = document.querySelector('.volume-progress')
 
 playButton.addEventListener('click', function () {
   this.classList.add('d-none')
@@ -275,10 +276,11 @@ playButton.addEventListener('click', function () {
   controlPanel.classList.add('d-flex')
   playIcon.classList.toggle('pause-icon')
 
-  const elements = [video, playIcon, progress, volume]
+  const elements = [video, playIcon, progress, volume, volumeProgress]
   elements.forEach((el) => {
     el.classList.add('cursor-pointer')
   })
+
   video.play()
   setTimeout(() => {
     poster.classList.add('d-none')
@@ -312,28 +314,10 @@ const targetForEvent = [
 targetForEvent.forEach(({target, events}) => {
   events.forEach(oneEvent => {
     target.addEventListener(oneEvent, function () {
-      target.classList.toggle('opacity-1')
+      controlPanel.classList.toggle('opacity-1')
     })
   })
 })
-
-/*
-video.addEventListener('mouseenter', function () {
-  controlPanel.classList.toggle('opacity-1')
-})
-
-video.addEventListener('mouseleave', function () {
-  controlPanel.classList.toggle('opacity-1')
-})
-
-controlPanel.addEventListener('mouseenter', function () {
-  this.classList.toggle('opacity-1')
-})
-
-controlPanel.addEventListener('mouseleave', function () {
-  this.classList.toggle('opacity-1')
-})
-*/
 
 playIcon.addEventListener('click', function () {
   this.classList.toggle('pause-icon')
@@ -364,6 +348,12 @@ progress.addEventListener('click', function(e) {
 volume.addEventListener('click', function () {
   this.classList.toggle('mute-icon')
   video.muted = !video.muted
+})
+
+volumeProgress.addEventListener('click', function(e) {
+  let rect = this.getBoundingClientRect();
+  let pos = (e.pageX  - rect.left) / this.offsetWidth;
+  this.value = video.volume = pos;
 })
 
 /**
