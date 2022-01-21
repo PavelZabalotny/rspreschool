@@ -1221,13 +1221,18 @@ button:focus {
   transition: opacity 1s ease-in-out;
 }
 
+.play-icon,
+.progress,
+.volume-icon {
+  margin-right: 2%;
+}
+
 .play-icon {
   width: 36px;
   height: 36px;
   background: url(./assets/svg/custom-video/play.svg) no-repeat center;
   background-size: contain;
   transition: 0.3s;
-  margin-right: 2%;
 }
 
 .progress {
@@ -1238,6 +1243,19 @@ button:focus {
 
 .pause-icon {
   background: url(./assets/svg/custom-video/pause.svg) no-repeat center;
+}
+
+.volume-icon {
+  width: 36px;
+  height: 36px;
+  background: url(./assets/svg/custom-video/volume.svg) no-repeat center;
+  background-size: contain;
+  transition: 0.3s;
+  margin-right: 2%;
+}
+
+.mute-icon {
+  background: url(./assets/svg/custom-video/mute.svg) no-repeat center;
 }
 
 .d-none {

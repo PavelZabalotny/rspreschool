@@ -267,15 +267,18 @@ const poster = document.querySelector('.poster')
 const controlPanel = document.querySelector('.control-panel')
 const playIcon = document.querySelector('.play-icon')
 const progress = document.querySelector('.progress')
+const volume = document.querySelector('.volume-icon')
 
 playButton.addEventListener('click', function () {
   this.classList.add('d-none')
   poster.classList.add('opacity-0')
   controlPanel.classList.add('d-flex')
   playIcon.classList.toggle('pause-icon')
-  video.classList.add('cursor-pointer')
-  playIcon.classList.add('cursor-pointer')
-  progress.classList.add('cursor-pointer')
+
+  const elements = [video, playIcon, progress, volume]
+  elements.forEach((el) => {
+    el.classList.add('cursor-pointer')
+  })
   video.play()
   setTimeout(() => {
     poster.classList.add('d-none')
@@ -358,6 +361,10 @@ progress.addEventListener('click', function(e) {
   video.currentTime = pos * video.duration;
 })
 
+volume.addEventListener('click', function () {
+  this.classList.toggle('mute-icon')
+  video.muted = !video.muted
+})
 
 /**
  * END Video player
