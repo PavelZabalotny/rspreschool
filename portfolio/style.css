@@ -367,7 +367,7 @@ ul.social-list li {
 
 .hero {
   max-width: 500px;
-  max-height: 330px;
+  /*max-height: 330px;*/
   margin: 175px 0 0 60px;
   padding-left: 20px;
   display: flex;
