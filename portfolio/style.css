@@ -3,6 +3,9 @@
   --black: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+  --body-color: #000000;
+  --text-color: #ffffff;
+  --hover-color: #ffffff;
   --trasition-0-3s: 0.3s;
   --font-size-18: 18px;
   --font-size-20: 20px;
@@ -111,6 +114,26 @@ a:hover {
   max-width: 1440px;
   margin: 0 auto;
 }
+
+/* Switch theme */
+.switch-theme {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 94%;
+  right: 1%;
+  cursor: pointer;
+  background-image: url(./assets/svg/switchTheme.svg);
+}
+
+#skills,
+#portfolio,
+#video,
+#price {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+/* END Switch theme */
 
 /* Header */
 .header-container {
@@ -282,7 +305,7 @@ ul.social-list li {
 }
 
 .btn-black:hover {
-  color: var(--white);
+  color: var(--hover-color);
   transition: none;
 }
 
@@ -329,13 +352,14 @@ ul.social-list li {
   line-height: 80px;
   color: var(--gold);
   padding: 0 20px;
-  background-color: var(--black);
+  background-color: var(--body-color);
 }
 
 /* Hero */
 .hero-container {
   width: 100%;
   height: 820px;
+  position: relative;
   background-image: url('./assets/img/header-bg.jpg');
   background-position: center -90px;
   background-repeat: no-repeat;
@@ -455,6 +479,10 @@ ul.social-list li {
 /* END Video */
 
 /* Price */
+#price {
+  padding-bottom: 100px;
+}
+
 .product-wrapper {
   display: flex;
   width: 100%;
@@ -512,7 +540,6 @@ ul.social-list li {
 /* Contact me */
 .contact-bg {
   height: 700px;
-  margin-top: 100px;
   background: url(./assets/img/contacts.jpg) no-repeat center;
   background-size: auto 700px;
   padding-top: 0;
@@ -615,6 +642,10 @@ ul.social-list li {
 
   .container {
     max-width: 768px;
+  }
+
+  .switch-theme {
+    top: 71%;
   }
 
   /* Header */
@@ -911,6 +942,10 @@ ul.social-list li {
 
 /* Media Queries 650px */
 @media (max-width: 650px) {
+  .switch-theme {
+    top: 45%;
+  }
+
   .nav {
     width: 100%;
     right: -100%;
@@ -1123,3 +1158,31 @@ ul.social-list li {
   }
 }
 /* END Media Queries 320px */
+
+/* Button ripple */
+button.btn {
+  overflow: hidden;
+  position: relative;
+}
+
+button:focus {
+  outline: none;
+}
+
+.circle {
+  position: absolute;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+/* END Button ripple */
