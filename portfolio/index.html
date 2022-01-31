@@ -15,6 +15,7 @@
     />
     <!-- END -->
     <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="index.mjs"></script>
     <title>Portfolio</title>
   </head>
   <body>
@@ -53,6 +54,11 @@
               <span>/</span>
               <span class="lang lang-ru">ru</span>
             </div>
+            <!-- Theme switcher -->
+              <svg class="theme-switcher">
+                <use href="./assets/svg/sprite-sun.svg#carbon_sun"></use>
+              </svg>
+            <!-- END Theme switcher -->
             <!-- Hamburger -->
             <div class="hamburger" id="hamburger-1">
               <span class="line"></span>
@@ -69,9 +75,6 @@
       <div class="container">
         <div class="section">
           <div class="hero-container">
-						<!-- Switch theme -->
-						<div class="switch-theme" data-theme="dark"></div>
-						<!-- END Switch theme -->
             <div class="hero">
               <h1 data-i18n="hero-title">Alexa Rise</h1>
               <div class="hero-description" data-i18n="hero-text">
@@ -180,17 +183,17 @@
               <h3 class="price-title">Standard</h3>
               <span class="price-value">500 $</span>
               <div class="price-description">
-                <span data-i18n="price-descripton-1-span-1">One location</span>
-                <span data-i18n="price-descripton-1-span-2"
+                <span data-i18n="price-description-1-span-1">One location</span>
+                <span data-i18n="price-description-1-span-2"
                   >120 photos in color</span
                 >
-                <span data-i18n="price-descripton-1-span-3"
+                <span data-i18n="price-description-1-span-3"
                   >12 photos in retouch</span
                 >
-                <span data-i18n="price-descripton-1-span-4"
+                <span data-i18n="price-description-1-span-4"
                   >Readiness 2-3 weeks</span
                 >
-                <span data-i18n="price-descripton-1-span-5"
+                <span data-i18n="price-description-1-span-5"
                   >Make up, visage</span
                 >
               </div>
@@ -203,19 +206,19 @@
               <h3 class="price-title">Premium</h3>
               <span class="price-value">700 $</span>
               <div class="price-description">
-                <span data-i18n="price-descripton-2-span-1"
+                <span data-i18n="price-description-2-span-1"
                   >One or two locations</span
                 >
-                <span data-i18n="price-descripton-2-span-2"
+                <span data-i18n="price-description-2-span-2"
                   >200 photos in color</span
                 >
-                <span data-i18n="price-descripton-2-span-3"
+                <span data-i18n="price-description-2-span-3"
                   >20 photos in retouch</span
                 >
-                <span data-i18n="price-descripton-2-span-4"
+                <span data-i18n="price-description-2-span-4"
                   >Readiness 1-2 weeks</span
                 >
-                <span data-i18n="price-descripton-2-span-5"
+                <span data-i18n="price-description-2-span-5"
                   >Make up, visage</span
                 >
               </div>
@@ -228,19 +231,19 @@
               <h3 class="price-title">Gold</h3>
               <span class="price-value">1000 $</span>
               <div class="price-description">
-                <span data-i18n="price-descripton-3-span-1"
+                <span data-i18n="price-description-3-span-1"
                   >Three locations or more</span
                 >
-                <span data-i18n="price-descripton-3-span-2"
+                <span data-i18n="price-description-3-span-2"
                   >300 photos in color</span
                 >
-                <span data-i18n="price-descripton-3-span-3"
+                <span data-i18n="price-description-3-span-3"
                   >50 photos in retouch</span
                 >
-                <span data-i18n="price-descripton-3-span-4"
+                <span data-i18n="price-description-3-span-4"
                   >Readiness 1 week</span
                 >
-                <span data-i18n="price-descripton-3-span-5"
+                <span data-i18n="price-description-3-span-5"
                   >Make up, visage, hairstyle</span
                 >
               </div>
@@ -254,9 +257,9 @@
         <div id="contacts" class="section contact-bg">
           <div class="contacts">
             <h2 data-i18n="contact-me">Contact me</h2>
-            <input type="email" placeholder="E-mail" />
-            <input type="tel" placeholder="Phone" />
-            <textarea placeholder="Message"></textarea>
+              <input type="email" placeholder="E-mail" />
+              <input type="tel" placeholder="Phone" />
+              <textarea placeholder="Message"></textarea>
             <button class="btn btn-gold ripple" data-i18n="send-message">
               Send message
             </button>
@@ -313,6 +316,6 @@
       </div>
     </footer>
 
-    <script type="module" src="./index.js"></script>
+    
   </body>
 </html>
