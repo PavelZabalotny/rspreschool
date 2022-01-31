@@ -1,11 +1,21 @@
 @import "normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 body {
-  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: #22254b;
   font-family: "Poppins", sans-serif;
 }
 
+.nothing {
+  display: inline-block;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 3rem;
+}
+
+/* Header */
 .header {
   background-color: #373b69;
   display: flex;
@@ -13,21 +23,123 @@ body {
   justify-content: flex-end;
   padding: 1rem;
 }
-.header .search {
+.header .header__search {
+  position: relative;
+}
+.header .header__search .search {
   background-color: transparent;
   border: 2px solid #22254b;
   border-radius: 50px;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  color: #fff;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  color: #ffffff;
   min-height: 25px;
 }
-.header .search::placeholder {
+.header .header__search .search::placeholder {
   color: #7378c5;
 }
-.header .search:focus {
+.header .header__search .search:focus {
   outline: none;
   background-color: #22254b;
 }
+.header .header__search .deleteButton {
+  width: 1rem;
+  height: 1rem;
+  background-image: url(../img/png/delete-button.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0.85rem;
+  right: 0.8rem;
+  z-index: 2;
+  cursor: pointer;
+  display: none;
+}
+
+/* EMD Header*/
+/* Movie-cards */
+.main {
+  /*display: flex;
+  justify-content: space-around;*/
+  flex: 1 0 auto;
+}
+
+.movie-cards {
+  max-width: calc(1200px + 3rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.movie-card {
+  width: 300px;
+  background-color: #373b69;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.movie-card img {
+  display: block;
+  height: 448px;
+  width: 100%;
+}
+.movie-card .movie-card__info {
+  color: #eee;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+.movie-card .movie-card__info h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.movie-card .movie-card__info .movie-card__type {
+  margin-bottom: 1rem;
+}
+
+/* END Movie-cards*/
+/* Footer */
+.footer {
+  background-color: #373b69;
+}
+.footer .container {
+  max-width: calc(1200px + 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.footer .container .git-hub img {
+  width: 3rem;
+  transition: 0.3s;
+}
+.footer .container .git-hub img:hover {
+  transform: scale(1.2);
+}
+.footer .container .year {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #ffffff;
+}
+.footer .container .rss img {
+  width: 6rem;
+  transition: 0.3s;
+}
+.footer .container .rss img:hover {
+  transform: scale(1.2);
+}
+
+/* END Footer */
 
 /*# sourceMappingURL=style.css.map */

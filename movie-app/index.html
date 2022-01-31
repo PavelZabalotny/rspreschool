@@ -17,17 +17,28 @@
 <header class="header">
   <form class="header__search">
     <label>
-      <input type="text" class="search" placeholder="Search">
+      <input type="text" class="search" placeholder="Search" autofocus autocomplete="off">
     </label>
+    <div class="deleteButton"></div>
   </form>
 </header>
 <main class="main">
-  <div class="container">
-    <div class="movie-card">
-      <div class="movie-card__info"></div>
-      <div class="movie-card__overview"></div>
-    </div>
+  
+  <div class="movie-cards">
+    <img src="./img/gif/loading.gif" alt="Loading">
   </div>
+
 </main>
+<footer class="footer">
+  <div class="container">
+    <a class="git-hub" href="https://github.com/PavelZabalotny">
+      <img src="./img/png/github.png" alt="">
+    </a>
+    <span class="year">2022</span>
+    <a class="rss" href="https://rs.school/js-stage0/">
+      <img src="./img/svg/rs_school_js.svg" alt="Rsschool">
+    </a>
+  </div>
+</footer>
 </body>
 </html>
