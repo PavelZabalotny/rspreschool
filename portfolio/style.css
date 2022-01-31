@@ -7,6 +7,7 @@
   --text-color: #ffffff;
   --hover-color: #ffffff;
   --trasition-0-3s: 0.3s;
+  --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
   --font-size-24: 24px;
@@ -115,17 +116,6 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Switch theme */
-.switch-theme {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  top: 94%;
-  right: 1%;
-  cursor: pointer;
-  background-image: url(./assets/svg/switchTheme.svg);
-}
-
 #skills,
 #portfolio,
 #video,
@@ -138,14 +128,13 @@ a:hover {
 /* Header */
 .header-container {
   height: 90px;
-  background: url('./assets/img/header-bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
+  background: url('./assets/img/header-bg.jpg') no-repeat center 0;
   padding: 20px 20px 0 20px;
 }
 
 .header-top {
   display: flex;
+  align-items: center;
   font-size: var(--font-size-20);
   line-height: 50px;
 }
@@ -166,6 +155,10 @@ a:hover {
 /* END Logo */
 
 /* Nav */
+.nav-light {
+  background-color: unset;
+}
+
 .nav {
   margin-left: auto;
 }
@@ -173,7 +166,7 @@ a:hover {
 ul.nav-list {
   height: 50px;
   display: flex;
-  margin-right: 32px;
+  margin-right: 127px;
   gap: 30px;
   justify-content: space-around;
   align-items: center;
@@ -197,6 +190,21 @@ ul.nav-list {
   cursor: default;
 }
 /* END Header lang */
+/* Theme switcher */
+.theme-switcher {
+  width: 45px;
+  height: 45px;
+  margin-left: 28px;
+  cursor: pointer;
+  fill: var(--white);
+  transition: 0.3s;
+}
+
+.theme-switcher:hover {
+  fill: var(--gold);
+}
+/* END Theme switcher */
+
 /* END Header */
 
 /* Main */
@@ -316,7 +324,7 @@ ul.social-list li {
 
 .btn-price {
   padding: 7px 39px;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-weight: normal;
 }
 
@@ -347,7 +355,7 @@ ul.social-list li {
 }
 
 .section-title h2 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-size: var(--font-size-40);
   line-height: 80px;
   color: var(--gold);
@@ -367,7 +375,7 @@ ul.social-list li {
 
 .hero {
   max-width: 500px;
-  max-height: 330px;
+  /*max-height: 330px;*/
   margin: 175px 0 0 60px;
   padding-left: 20px;
   display: flex;
@@ -376,7 +384,7 @@ ul.social-list li {
 }
 
 .hero h1 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-style: normal;
   font-weight: bold;
   font-size: var(--font-size-60);
@@ -385,7 +393,7 @@ ul.social-list li {
 }
 
 .hero-description {
-  font-family: Inter;
+  font-family: Inter, serif;
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-20);
@@ -422,7 +430,7 @@ ul.social-list li {
 }
 /* END Skills */
 
-/* Porftolio */
+/* Portfolio */
 .portfolio-btns {
   margin-top: 60px;
   display: flex;
@@ -445,7 +453,7 @@ ul.social-list li {
   margin-left: 25px;
   margin-bottom: 25px;
 }
-/* END Porftolio */
+/* END Portfolio */
 
 /* Video */
 #video {
@@ -465,8 +473,7 @@ ul.social-list li {
 .video-player .icon {
   height: 130px;
   width: 130px;
-  background-color: transparent;
-  background: url(./assets/svg/Play_Unvisited.svg) no-repeat center;
+  background: transparent url(./assets/svg/Play_Unvisited.svg) no-repeat center;
   border: none;
   cursor: pointer;
   transition: var(--trasition-0-3s);
@@ -501,10 +508,7 @@ ul.social-list li {
   /* width: 450px; */
   /* height: 505px; */
   border: 3px solid var(--gold);
-  padding-top: 50px;
-  padding-bottom: 40px;
-  padding-left: 7.77%;
-  padding-right: 7.77%;
+  padding: 50px 7.77% 40px;
 }
 
 .product-card button {
@@ -516,12 +520,12 @@ ul.social-list li {
 }
 
 .price-description span {
-  font-family: Inter;
+  font-family: Inter, serif;
   font-weight: normal;
 }
 
 .product-card {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-style: normal;
   font-weight: bold;
 }
@@ -600,7 +604,7 @@ ul.social-list li {
 }
 
 .contacts h2 {
-  font-family: Merriweather;
+  font-family: Merriweather, serif;
   font-size: var(--font-size-40);
   color: var(--gold);
   margin-bottom: 62px;
@@ -636,16 +640,28 @@ ul.social-list li {
 
 /* Media Queries 768px */
 @media (max-width: 768px) {
+  .theme-switcher {
+    margin: 0 144px 0 45px;
+  }
+
+  nav.nav-light {
+    background-color: var(--white);
+  }
+
+  nav.nav-light ul li a {
+    color: var(--black);
+  }
+
+  .background-light {
+    background-color: var(--white);
+  }
+
   body {
     overflow-x: hidden;
   }
 
   .container {
     max-width: 768px;
-  }
-
-  .switch-theme {
-    top: 71%;
   }
 
   /* Header */
@@ -657,9 +673,8 @@ ul.social-list li {
 
   .switch-lng {
     margin-left: auto;
-    margin-right: 115px;
     justify-content: end;
-    gap: 20px;
+    gap: 9px;
   }
   /* END Header */
 
@@ -673,6 +688,7 @@ ul.social-list li {
     right: -620px;
     padding-top: 142px;
     transition: 0.5s;
+    z-index: 2;
   }
 
   .nav.is-open {
@@ -685,7 +701,7 @@ ul.social-list li {
     justify-content: flex-start;
     font-size: var(--font-size-35);
     align-items: baseline;
-    margin-left: 126px;
+    margin-left: 127px;
     line-height: 58px;
   }
   /* END Nav */
@@ -831,9 +847,8 @@ ul.social-list li {
   }
 
   .contacts {
-    margin: 0 auto;
     align-items: center;
-    margin-top: 74px;
+    margin: 74px auto 0;
   }
 
   .contacts h2 {
@@ -942,9 +957,6 @@ ul.social-list li {
 
 /* Media Queries 650px */
 @media (max-width: 650px) {
-  .switch-theme {
-    top: 45%;
-  }
 
   .nav {
     width: 100%;
@@ -982,6 +994,15 @@ ul.social-list li {
 
 /* Media Queries 320px */
 @media (max-width: 460px) {
+  ul.nav-list {
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .theme-switcher {
+    margin: 0 65px 0 15px;
+  }
+
   .main .section:nth-child(1) {
     margin: 0 -1rem;
   }
@@ -995,10 +1016,6 @@ ul.social-list li {
     margin: 0 -1rem;
     background-position: -80px 0;
     background-size: 170%;
-  }
-
-  .switch-lng {
-    margin-right: 5.5rem;
   }
 
   .hamburger {
@@ -1157,7 +1174,7 @@ ul.social-list li {
     padding: 0 1rem;
   }
 }
-/* END Media Queries 320px */
+/* END Media Queries 460px */
 
 /* Button ripple */
 button.btn {
@@ -1186,3 +1203,22 @@ button:focus {
   }
 }
 /* END Button ripple */
+
+/* Light theme */
+.btn-light {
+  color: var(--black);
+}
+
+.btn-light:hover {
+  color: var(--white);
+  background-color: var(--gold);
+}
+
+/*.hamburger .line-light {
+  background-color: var(--black);
+}*/
+
+div[class*="is-active"] .line-light {
+  background-color: var(--black);
+}
+/* END Light Theme */
