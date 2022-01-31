@@ -1,4 +1,4 @@
-import i18Obj from './js/translate.js'
+import i18Obj from './js/translate.mjs'
 
 /* console.log(`Task: portfolio#1
 1) Вёрстка валидная +10
@@ -115,19 +115,16 @@ portfolioBtn?.addEventListener('click', (e) => {
     changeActiveClass(e.target, btnActiveClass)
   }
 })
-
 // add active class
 function changeActiveClass(linkOnElement, activeClass) {
   linkOnElement.classList.add(activeClass)
 }
-
 // reset active class from button
 function resetActiveClass(linkOnElements, activeClass) {
   linkOnElements.forEach((btn) => {
     btn.classList.remove(activeClass)
   })
 }
-
 // auto click on button with autumn season
 portfolioBtns[3].click()
 /**
@@ -184,24 +181,64 @@ window.addEventListener('beforeunload', setLocalStorage)
  */
 // default global theme
 let theme = 'dark'
-const switchThemeBtn = document.querySelector('.switch-theme')
+// const switchThemeBtn = document.querySelector('.switch-theme')
+const switchThemeBtn = document.querySelector('.theme-switcher')
+const switchThemeBtnUse = document.querySelector('.theme-switcher use')
+const sectionTitleH2 = document.querySelectorAll('.section-title h2')
+const sectionTitle = document.querySelectorAll('.section-title')
+const line = document.querySelectorAll('.line')
+const headerContainer = document.querySelector('.header .container')
+const mainContainer = document.querySelector('.main .container')
 
 // evaluate css variables
-let colorScheme = () => [
-  {'--body-color': theme !== 'dark' ? '#fff' : '#000'},
-  {'--text-color': theme !== 'dark' ? '#000' : '#fff'},
-  {'--hover-color': theme !== 'dark' ? '#000' : '#fff'},
-]
+let colorScheme = () => {
+  let colorA = theme !== 'dark' ? '#fff' : '#000'
+  let colorB = theme !== 'dark' ? '#000' : '#fff'
+  return [
+    { '--body-color': colorA },
+    { '--text-color': colorB },
+    { '--hover-color': colorB },
+  ]
+}
 
 function switchTheme(array = []) {
+  let colorA, sectionTitleBackground, svgUseAttr, btnLight, navLight, lineLight
+  if(theme === 'dark') {
+    colorA = 'var(--gold)'
+    sectionTitleBackground = 'url(./assets/svg/section-title-line.svg) no-repeat center'
+    svgUseAttr = "./assets/svg/sprite-sun.svg#carbon_sun"
+    headerContainer.classList.remove('background-light')
+    mainContainer.classList.remove('background-light')
+    nav.classList.remove('nav-light')
+  } else {
+    colorA = '#000'
+    sectionTitleBackground = 'url(./assets/svg/section-title-line-black.svg) no-repeat center'
+    svgUseAttr = "./assets/svg/sprite-sun.svg#vector"
+    headerContainer.classList.add('background-light')
+    mainContainer.classList.add('background-light')
+    nav.classList.add('nav-light')
+  }
+
   array.forEach((obj) => {
-    // cssObj =  ['--body-color', '#fff']
-    let [cssObj] = Object.entries(obj)
-    // key = '--body-color'; value = '#fff'
-    let [key, value = ''] = cssObj
+    // [key, value] =  ['--body-color', '#fff']
+    let [[key, value = '']] = Object.entries(obj)
     // set css variable like --body-color: #fff
     document.documentElement.style.setProperty(key, value)
   })
+
+  sectionTitleH2.forEach(el => {
+    el.style.color = colorA
+  })
+  sectionTitle.forEach(el => {
+    el.style.background = sectionTitleBackground
+  })
+  portfolioBtns.forEach(el => {
+    theme === 'dark' ? el.classList.remove('btn-light') : el.classList.add('btn-light')
+  })
+  line.forEach(el => {
+    theme === 'dark' ? el.classList.remove('line-light') : el.classList.add('line-light')
+  })
+  switchThemeBtnUse.setAttribute("href", svgUseAttr)
 }
 
 switchThemeBtn?.addEventListener('click', function () {
@@ -212,7 +249,6 @@ switchThemeBtn?.addEventListener('click', function () {
 function setThemeToLocalStorage() {
   localStorage.setItem('theme', theme)
 }
-
 window.addEventListener('beforeunload', setThemeToLocalStorage)
 
 function getThemeFromLocalStorage() {
@@ -221,7 +257,6 @@ function getThemeFromLocalStorage() {
     switchTheme(colorScheme())
   }
 }
-
 window.addEventListener('load', getThemeFromLocalStorage)
 /**
  * END
@@ -233,10 +268,7 @@ window.addEventListener('load', getThemeFromLocalStorage)
 document.body.addEventListener('click', function (e) {
   if (e.target.classList.contains('ripple')) {
     const x = e.pageX
-    const y = e.pageY
-
-    console.log(x)
-    console.log(y)
+		const y = e.pageY
 
     const buttonTop = e.target.offsetTop
     const buttonLeft = e.target.offsetLeft
@@ -251,7 +283,7 @@ document.body.addEventListener('click', function (e) {
 
     e.target.appendChild(circle)
 
-    setTimeout(() => circle.remove(), 500)
+		setTimeout(() => circle.remove(), 500)
   }
 })
 /**
@@ -275,6 +307,7 @@ playButton.addEventListener('click', function () {
   poster.classList.add('opacity-0')
   controlPanel.classList.add('d-flex')
   playIcon.classList.toggle('pause-icon')
+  controlPanel.classList.toggle('opacity-1')
 
   const elements = [video, playIcon, progress, volume, volumeProgress]
   elements.forEach((el) => {
@@ -298,25 +331,6 @@ function togglePlay(target) {
 video.addEventListener('click', function () {
   playIcon.classList.toggle('pause-icon')
   togglePlay(this)
-})
-
-const targetForEvent = [
-  {
-    target: video,
-    events: ['mouseenter', 'mouseleave'],
-  },
-  {
-    target: controlPanel,
-    events: ['mouseenter', 'mouseleave'],
-  },
-]
-
-targetForEvent.forEach(({target, events}) => {
-  events.forEach(oneEvent => {
-    target.addEventListener(oneEvent, function () {
-      controlPanel.classList.toggle('opacity-1')
-    })
-  })
 })
 
 playIcon.addEventListener('click', function () {

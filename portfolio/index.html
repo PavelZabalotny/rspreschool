@@ -15,6 +15,7 @@
     />
     <!-- END -->
     <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="index.mjs"></script>
     <title>Portfolio</title>
   </head>
   <body>
@@ -53,6 +54,11 @@
               <span>/</span>
               <span class="lang lang-ru">ru</span>
             </div>
+            <!-- Theme switcher -->
+              <svg class="theme-switcher">
+                <use href="./assets/svg/sprite-sun.svg#carbon_sun"></use>
+              </svg>
+            <!-- END Theme switcher -->
             <!-- Hamburger -->
             <div class="hamburger" id="hamburger-1">
               <span class="line"></span>
@@ -69,9 +75,6 @@
       <div class="container">
         <div class="section">
           <div class="hero-container">
-						<!-- Switch theme -->
-						<div class="switch-theme" data-theme="dark"></div>
-						<!-- END Switch theme -->
             <div class="hero">
               <h1 data-i18n="hero-title">Alexa Rise</h1>
               <div class="hero-description" data-i18n="hero-text">
@@ -275,9 +278,9 @@
         <div id="contacts" class="section contact-bg">
           <div class="contacts">
             <h2 data-i18n="contact-me">Contact me</h2>
-            <input type="email" placeholder="E-mail" />
-            <input type="tel" placeholder="Phone" />
-            <textarea placeholder="Message"></textarea>
+              <input type="email" placeholder="E-mail" />
+              <input type="tel" placeholder="Phone" />
+              <textarea placeholder="Message"></textarea>
             <button class="btn btn-gold ripple" data-i18n="send-message">
               Send message
             </button>
@@ -334,6 +337,6 @@
       </div>
     </footer>
 
-    <script type="module" src="./index.js"></script>
+    
   </body>
 </html>
