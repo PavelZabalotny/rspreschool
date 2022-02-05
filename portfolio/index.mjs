@@ -148,6 +148,7 @@ function getLocalStorage() {
     getTranslate(lang)
   }
 }
+
 window.addEventListener('load', getLocalStorage)
 
 function getTranslate(language = 'en') {
@@ -169,6 +170,7 @@ langButton?.addEventListener('click', function (e) {
 function setLocalStorage() {
   localStorage.setItem('lang', lang)
 }
+
 window.addEventListener('beforeunload', setLocalStorage)
 /**
  * END
@@ -286,4 +288,95 @@ document.body.addEventListener('click', function (e) {
 })
 /**
  * END Button ripple
+ */
+
+/**
+ * Video player
+ */
+const playButton = document.querySelector('.play-button')
+const video = document.querySelector('.video')
+const poster = document.querySelector('.poster')
+const controlPanel = document.querySelector('.control-panel')
+const playIcon = document.querySelector('.play-icon')
+const progress = document.querySelector('.progress')
+const volume = document.querySelector('.volume-icon')
+const volumeProgress = document.querySelector('.volume-progress')
+
+playButton.addEventListener('click', function () {
+  this.classList.add('d-none')
+  poster.classList.add('opacity-0')
+  controlPanel.classList.add('d-flex')
+  playIcon.classList.toggle('pause-icon')
+  controlPanel.classList.add('opacity-1')
+
+  const elements = [video, playIcon, progress, volume, volumeProgress]
+  elements.forEach((el) => {
+    el.classList.add('cursor-pointer')
+  })
+
+  video.play()
+  setTimeout(() => {
+    poster.classList.add('d-none')
+  }, 1000)
+})
+
+function togglePlay(target) {
+  if (target.paused || target.ended) {
+    target.play()
+    playButton.classList.add('d-none')
+  } else {
+    target.pause()
+    playButton.classList.remove('d-none')
+  }
+}
+
+video.addEventListener('click', function () {
+  playIcon.classList.toggle('pause-icon')
+  togglePlay(this)
+})
+
+playIcon.addEventListener('click', function () {
+  this.classList.toggle('pause-icon')
+  togglePlay(video)
+})
+
+video.addEventListener('loadedmetadata', function () {
+  progress.setAttribute('max', this.duration)
+})
+
+video.addEventListener('timeupdate', function () {
+  if (!progress.getAttribute('max')) {
+    progress.setAttribute('max', this.duration)
+  }
+  progress.value = this.currentTime
+})
+
+video.addEventListener('ended', function () {
+  playIcon.classList.toggle('pause-icon')
+})
+
+progress.addEventListener('click', function (e) {
+  let rect = this.getBoundingClientRect()
+  let pos = (e.pageX - rect.left) / this.offsetWidth
+  video.currentTime = pos * video.duration
+})
+
+volume.addEventListener('click', function () {
+  this.classList.toggle('mute-icon')
+  video.muted = !video.muted
+})
+
+volumeProgress.addEventListener('input', function () {
+  let gradient = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value * 100}%, #c8c8c8 40%, #c8c8c8 100%)`
+  video.volume = this.value
+  this.style.background = gradient
+  if(this.value <= 0) {
+    volume.classList.add('mute-icon')
+  } else {
+    volume.classList.remove('mute-icon')
+  }
+})
+
+/**
+ * END Video player
  */
