@@ -307,7 +307,7 @@ playButton.addEventListener('click', function () {
   poster.classList.add('opacity-0')
   controlPanel.classList.add('d-flex')
   playIcon.classList.toggle('pause-icon')
-  controlPanel.classList.toggle('opacity-1')
+  controlPanel.classList.add('opacity-1')
 
   const elements = [video, playIcon, progress, volume, volumeProgress]
   elements.forEach((el) => {
@@ -323,8 +323,10 @@ playButton.addEventListener('click', function () {
 function togglePlay(target) {
   if (target.paused || target.ended) {
     target.play()
+    playButton.classList.add('d-none')
   } else {
     target.pause()
+    playButton.classList.remove('d-none')
   }
 }
 
@@ -368,6 +370,11 @@ volumeProgress.addEventListener('input', function () {
   let gradient = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value * 100}%, #c8c8c8 40%, #c8c8c8 100%)`
   video.volume = this.value
   this.style.background = gradient
+  if(this.value <= 0) {
+    volume.classList.add('mute-icon')
+  } else {
+    volume.classList.remove('mute-icon')
+  }
 })
 
 /**
