@@ -9,6 +9,20 @@ html {
   color: $text-color;
 }
 
+a {
+  text-decoration: none;
+  color: $text-color;
+  transition: 0.3s;
+
+  &:hover {
+    color: $text-color-hover;
+  }
+}
+
+img {
+  display: block;
+}
+
 body {
   font-family: "Trajan Pro 3", serif;
   min-height: 100vh;

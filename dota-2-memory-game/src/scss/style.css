@@ -30,16 +30,45 @@
 /* Variables */
 .footer {
   height: 50px;
+  font-size: 1.5rem;
   background-color: #171a21;
 }
 .footer .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.footer .github__logo {
+  width: 40px;
+  transition: 0.3s;
+}
+.footer .github__logo:hover {
+  transform: scale(1.1);
+}
+.footer .rsschool__logo {
+  width: 100px;
+  transition: 0.3s;
+}
+.footer .rsschool__logo:hover {
+  transform: scale(1.1);
 }
 
 html {
   color: #c6d4df;
+}
+
+a {
+  text-decoration: none;
+  color: #c6d4df;
+  transition: 0.3s;
+}
+a:hover {
+  color: #648aa8;
+}
+
+img {
+  display: block;
 }
 
 body {
