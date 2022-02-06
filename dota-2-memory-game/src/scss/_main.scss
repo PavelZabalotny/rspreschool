@@ -1,0 +1,24 @@
+@import "variables";
+
+.main {
+  padding: 1rem 0;
+}
+
+.heroes {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  grid-template-columns: repeat(auto-fill, $hero_w);
+  //grid-template-rows: repeat(4, $hero_h);
+  grid-auto-rows: $hero_h;
+  gap: $gap;
+  height: 100%;
+
+  //background-color: #fff;
+}
+
+.hero_img {
+  max-width: $hero_w;
+  max-height: $hero_h;
+}

@@ -1,7 +1,61 @@
+/* Variables */
 @import "normalize.css";
 @import "../fonts/TrajanPro3Regular/style.css";
+/* Variables */
+.header {
+  height: 50px;
+  background-color: #1f2126;
+}
+
+/* Variables */
+.main {
+  padding: 1rem 0;
+}
+
+.heroes {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(auto-fill, 217.6px);
+  grid-auto-rows: 122.4px;
+  gap: 10px;
+  height: 100%;
+}
+
+.hero_img {
+  max-width: 217.6px;
+  max-height: 122.4px;
+}
+
+/* Variables */
+.footer {
+  height: 50px;
+  background-color: #171a21;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+html {
+  color: #c6d4df;
+}
+
 body {
   font-family: "Trajan Pro 3", serif;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #1b2838;
+}
+
+.container {
+  max-width: calc(870.4px + (3 * 10px));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  outline: 1px solid red;
 }
 
 /*# sourceMappingURL=style.css.map */

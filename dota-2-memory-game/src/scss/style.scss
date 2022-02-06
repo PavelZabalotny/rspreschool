@@ -1,6 +1,26 @@
+@import "variables";
 @import "normalize.css";
 @import "../fonts/TrajanPro3Regular/style.css";
+@import "header";
+@import "main";
+@import "footer";
+
+html {
+  color: $text-color;
+}
 
 body {
   font-family: "Trajan Pro 3", serif;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: $bg_body_color;
+}
+
+.container {
+  max-width: calc(#{$hero_w * $grid_column} + (#{$grid_column - 1} * #{$gap}));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  outline: 1px solid red;
 }
