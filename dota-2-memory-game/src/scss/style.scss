@@ -36,5 +36,10 @@ body {
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
-  outline: 1px solid red;
+  //outline: 1px solid red;
+}
+
+.hidden {
+  visibility: hidden;
+  transition: 0.1s;
 }

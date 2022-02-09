@@ -16,15 +16,50 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-template-columns: repeat(auto-fill, 217.6px);
-  grid-auto-rows: 122.4px;
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 215.04px);
+  grid-auto-rows: 120.96px;
+  gap: 15px;
   height: 100%;
+  perspective: 3000px;
 }
-
-.hero_img {
-  max-width: 217.6px;
-  max-height: 122.4px;
+.heroes .hero {
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+.heroes .hero:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+.heroes .hero.flip {
+  transform: rotateX(-180deg);
+}
+.heroes .hero .name {
+  width: 100%;
+  padding: 5px;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  display: block;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+.heroes .hero .hero__img-front {
+  transform: rotateX(180deg);
+}
+.heroes .hero .hero__img-back,
+.heroes .hero .hero__img-front {
+  max-width: 215.04px;
+  max-height: 120.96px;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
 /* Variables */
@@ -80,11 +115,15 @@ body {
 }
 
 .container {
-  max-width: calc(870.4px + (3 * 10px));
+  max-width: calc(860.16px + (3 * 15px));
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
-  outline: 1px solid red;
+}
+
+.hidden {
+  visibility: hidden;
+  transition: 0.1s;
 }
 
 /*# sourceMappingURL=style.css.map */
