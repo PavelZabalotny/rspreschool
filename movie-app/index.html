@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./scss/style.css">
+  <script type="module" src="./js/index.js"></script>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <!-- END Favicon -->
+  
+  <title>Movie app</title>
+</head>
+<body>
+<header class="header">
+  <form class="header__search">
+    <label>
+      <input type="text" class="search" placeholder="Search" autofocus autocomplete="off">
+    </label>
+    <div class="deleteButton"></div>
+  </form>
+</header>
+<main class="main">
+
+<!-- Insert movie cards to this container after fetch -->
+  <div class="movie-cards">
+    <img src="./img/gif/loading.gif" alt="Loading">
+  </div>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <a class="git-hub" href="https://github.com/PavelZabalotny">
+      <img src="./img/png/github.png" alt="">
+    </a>
+    <span class="year">2022</span>
+    <a class="rss" href="https://rs.school/js-stage0/">
+      <img src="./img/svg/rs_school_js.svg" alt="Rsschool">
+    </a>
+  </div>
+</footer>
+</body>
+</html>
