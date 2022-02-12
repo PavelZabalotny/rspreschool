@@ -2,12 +2,15 @@ import { heroes } from "./heroes.mjs"
 
 /* config */
 const config = {
-  numberOfHeroes: 1,
+  numberOfHeroes: 2,
   timeToUnflip: 1500,
 }
 /* END config */
 
 const heroesDiv = document.querySelector( '.heroes' )
+/* Modal window */
+const modal = document.querySelector('.modal')
+
 let allPairsOfHeroes
 
 // Fisher-Yates shuffle algorithm
@@ -37,9 +40,7 @@ function randomHeroesRange( array, numberOfHeroes ) {
   }
 
   const filteredHeroes = shuffleHeroes.filter( ( el, index ) => randomSet.has( index ) )
-  const doubleFilteredHeroes = shuffle( [ ...filteredHeroes, ...filteredHeroes ] )
-
-  return doubleFilteredHeroes
+  return shuffle( [ ...filteredHeroes, ...filteredHeroes ] )
 }
 
 function addHeroesToHTML( element, heroes, numberOfHeroes ) {
@@ -50,7 +51,7 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
 
   const container = ( { src, name } ) => (
     `<div class="hero" data-name=${ name }>
-      <span class="name">${ name }</span>
+      <span class="name hidden">${ name }</span>
       <img 
         class="hero__img-front" 
         src="./src/assets/img/heroes/${ src }" 
@@ -74,27 +75,39 @@ const runTheGame = () => addHeroesToHTML( heroesDiv, heroes, config.numberOfHero
 runTheGame()
 /* END Run the game */
 
-const heroElements = document.querySelectorAll( '.hero' )
+let heroElements
+const newGame = document.querySelector( '.new-game' )
+const counterValue = document.querySelector( '.counter__value' )
+const timerValue = document.querySelector( '.timer__value' )
 
 /* Flip the Heroes */
 let firstHero, secondHero, timeID
 let lockGame = false
-let counter = 0
+let turns = 0
 let time = 0
+let foundPairs = 0
+let roundTime
 
-heroElements.forEach( el => {
-  el.addEventListener( 'click', flipHero )
-} )
+const setHeroEventListener = () => {
+  heroElements = document.querySelectorAll( '.hero' )
+  heroElements.forEach( el => {
+    el.addEventListener( 'click', flipHero )
+  } )
+}
+
+setHeroEventListener()
 
 function flipHero() {
   if ( lockGame || (this === firstHero) ) {
     return
   }
 
-  if(!time) {
-    timeID = setInterval(() => {
+  if ( !time ) {
+    timeID = setInterval( () => {
       time += 0.1
-    }, 100)
+      roundTime = time.toFixed( 1 )
+      timerValue.innerHTML = roundTime
+    }, 100 )
   }
 
   if ( !firstHero ) {
@@ -111,7 +124,7 @@ function flipHero() {
 
 function checkHeroes() {
   // lockGame = true
-
+  counterValue.innerHTML = `${ ++turns }`
   firstHero.dataset.name === secondHero.dataset.name
     ? disableHeroes()
     : unflipHeroes()
@@ -120,15 +133,33 @@ function checkHeroes() {
 function disableHeroes() {
   [ firstHero, secondHero ].forEach( el => {
     el.removeEventListener( 'click', flipHero )
+    // el.firstChild.classList.add('visible')
+    el.childNodes.forEach( elem => {
+      if ( elem.nodeName === 'SPAN' ) {
+        // console.log(elem)
+        setTimeout( () => {
+          elem.classList.remove( 'hidden' )
+        }, 400 )
+      }
+      // console.dir(elem)
+      // console.log(el.childNodes)
+    } )
   } )
+
+  foundPairs++
   reset()
 }
 
 function reset() {
-  if (++counter === allPairsOfHeroes) {
-    clearInterval(timeID)
-    let roundTime = time.toFixed(1)
-    alert(`time: ${roundTime} seconds`)
+  if ( foundPairs === allPairsOfHeroes ) {
+    clearInterval( timeID )
+
+    // Invoke modal window with final result
+    setTimeout( () => {
+      // alert( `time: ${ roundTime } seconds` )
+      let payload = `<div>${roundTime}</div>`
+      modalCreator(payload)
+    }, 500 )
   }
   firstHero = secondHero = null
   lockGame = false
@@ -145,3 +176,39 @@ function unflipHeroes() {
     reset()
   }, config.timeToUnflip )
 }
+
+newGame.addEventListener( 'click', startNewGame )
+
+function resetCounter() {
+  turns = 0
+
+  return turns
+}
+
+function resetTime() {
+  time = foundPairs = 0
+  return time
+}
+
+function startNewGame() {
+  heroElements.forEach( el => {
+    el.classList.remove( 'flip' )
+  } )
+  setTimeout( () => {
+    reset()
+    runTheGame()
+    setHeroEventListener()
+    counterValue.innerHTML = resetCounter()
+  }, 500 )
+  timerValue.innerHTML = resetTime()
+}
+
+/**
+ * Modal function
+ */
+function modalCreator (payload) {
+  modal.innerHTML = payload
+  modal.classList.toggle('top-50')
+}
+
+

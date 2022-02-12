@@ -3,8 +3,46 @@
 @import "../fonts/TrajanPro3Regular/style.css";
 /* Variables */
 .header {
-  height: 50px;
+  height: 80px;
   background-color: #1f2126;
+  outline: 5px solid #4d525e;
+}
+.header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__logo {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.header .container .header__logo:hover {
+  transform: scale(1.1);
+}
+.header .container .game-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .container .game-info .timer .timer__value {
+  display: inline-block;
+  width: 43px;
+}
+.header .container .game-info .new-game {
+  cursor: pointer;
+  padding: 5px;
+}
+.header .container .game-info .counter .counter__value {
+  width: 30px;
+  display: inline-block;
+}
+.header .container .record {
+  cursor: pointer;
+  padding: 5px;
 }
 
 /* Variables */
@@ -41,18 +79,20 @@
   padding: 5px;
   position: absolute;
   z-index: 3;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -1px;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  display: block;
+  display: inline-block;
   text-align: center;
-  border-radius: 0 0 5px 5px;
   box-sizing: border-box;
-  visibility: hidden;
+  overflow: hidden;
+  transform: rotateX(180deg);
 }
 .heroes .hero .hero__img-front {
   transform: rotateX(180deg);
+}
+.heroes .hero .hero__img-back {
+  z-index: 4;
 }
 .heroes .hero .hero__img-back,
 .heroes .hero .hero__img-front {
@@ -64,9 +104,10 @@
 
 /* Variables */
 .footer {
-  height: 50px;
+  height: 80px;
   font-size: 1.5rem;
   background-color: #171a21;
+  outline: 5px solid #4d525e;
 }
 .footer .container {
   display: flex;
@@ -80,6 +121,9 @@
 }
 .footer .github__logo:hover {
   transform: scale(1.1);
+}
+.footer .year {
+  font-size: 2rem;
 }
 .footer .rsschool__logo {
   width: 100px;
@@ -112,10 +156,11 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: #1b2838;
+  position: relative;
 }
 
 .container {
-  max-width: calc(860.16px + (3 * 15px));
+  max-width: calc(1075.2px + (4 * 15px));
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -124,6 +169,30 @@ body {
 .hidden {
   visibility: hidden;
   transition: 0.1s;
+}
+
+.visible {
+  visibility: visible;
+  transition: 0.1s;
+}
+
+.modal {
+  width: 60%;
+  height: 60%;
+  min-width: 400px;
+  max-width: 500px;
+  padding: 40px;
+  position: absolute;
+  z-index: 999;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
+  background-color: #c6d4df;
+}
+
+.top-50 {
+  top: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

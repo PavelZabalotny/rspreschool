@@ -1,10 +1,11 @@
 @import "variables";
 
 .footer {
-  height: 50px;
+  height: 80px;
   //padding: 0.7rem 0;
   font-size: 1.5rem;
   background-color: #171a21;
+  outline: 5px solid lighten($bg_header_color, 20%);
 
   .container {
     display: flex;
@@ -23,7 +24,7 @@
   }
 
   .year {
-    //font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .rsschool__logo {

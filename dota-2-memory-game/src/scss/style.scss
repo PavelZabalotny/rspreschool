@@ -29,6 +29,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: $bg_body_color;
+  position: relative;
 }
 
 .container {
@@ -42,4 +43,29 @@ body {
 .hidden {
   visibility: hidden;
   transition: 0.1s;
+}
+
+.visible {
+  visibility: visible;
+  transition: 0.1s;
+}
+
+// Modal
+.modal {
+  width: 60%;
+  height: 60%;
+  min-width: 400px;
+  max-width: 500px;
+  padding: 40px;
+  position: absolute;
+  z-index: 999;
+  top: -40%; // || 50%
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
+  background-color: #c6d4df;
+}
+
+.top-50 {
+  top: 50%;
 }
