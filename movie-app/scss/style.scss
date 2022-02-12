@@ -25,7 +25,6 @@ body {
 
 /* Header */
 .header {
-  //min-height: 45px;
   background-color: $secondary-color;
   display: flex;
   align-items: center;
@@ -75,8 +74,6 @@ body {
 
 /* Movie-cards */
 .main {
-  /*display: flex;
-  justify-content: space-around;*/
   flex: 1 0 auto;
 }
 
@@ -84,16 +81,15 @@ body {
   max-width: calc(1200px + 3 * 1rem);
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin: 1rem auto;
-  //background-color: red;
+  padding: 0 1rem;
 }
 
 .movie-card {
-  //outline: 1px solid red;
   width: 300px;
-  //margin: 1rem;
   background-color: $secondary-color;
   box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
   position: relative;
@@ -102,13 +98,12 @@ body {
 
   img {
     display: block;
-    height: 448px;
+    max-height: 448px;
     width: 100%;
   }
 
   .movie-card__info {
     color: #eee;
-    //display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem 1rem;
@@ -169,5 +164,4 @@ body {
     }
   }
 }
-
 /* END Footer */
