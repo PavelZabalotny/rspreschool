@@ -14,7 +14,7 @@
 
     .header__logo {
       width: 50px;
-      height:50px;
+      height: 50px;
       cursor: pointer;
       transition: 0.1s;
 
@@ -39,8 +39,7 @@
       }
 
       .new-game {
-        cursor: pointer;
-        padding: 5px;
+        @extend .button
       }
 
       .counter {
@@ -53,8 +52,7 @@
     }
 
     .record {
-      cursor: pointer;
-      padding: 5px;
+      @extend .button
     }
   }
 }

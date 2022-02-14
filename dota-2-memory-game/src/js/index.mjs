@@ -2,14 +2,16 @@ import { heroes } from "./heroes.mjs"
 
 /* config */
 const config = {
-  numberOfHeroes: 2,
+  numberOfHeroesPairs: 10,
   timeToUnflip: 1500,
+  timeToShowName: 400,
+  timeToNewGame: 500,
 }
 /* END config */
 
 const heroesDiv = document.querySelector( '.heroes' )
 /* Modal window */
-const modal = document.querySelector('.modal')
+const modal = document.querySelector( '.modal' )
 
 let allPairsOfHeroes
 
@@ -27,10 +29,10 @@ function randomNumberInRange( array ) {
   return Math.floor( Math.random() * array.length ) // random index at 0 to i
 }
 
-// Get a certain number of heroes (numberOfHeroes * 2) as an array of objects
+// Get a certain number of heroes (numberOfHeroesPairs * 2) as an array of objects
 function randomHeroesRange( array, numberOfHeroes ) {
   if ( numberOfHeroes > array.length ) {
-    throw new Error( 'numberOfHeroes > heroes.length' )
+    throw new Error( 'numberOfHeroesPairs > heroes.length' )
   }
   const shuffleHeroes = shuffle( array )
   const randomSet = new Set()
@@ -51,16 +53,20 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
 
   const container = ( { src, name } ) => (
     `<div class="hero" data-name=${ name }>
-      <span class="name hidden">${ name }</span>
+      <span class="name hidden">
+        <span class="name__title">${ name }</span>
+      </span>
       <img 
         class="hero__img-front" 
         src="./src/assets/img/heroes/${ src }" 
         alt="${ name }"
+        draggable=${ false }
       >
       <img 
         class="hero__img-back" 
         src="./src/assets/img/back/back.jpg" 
         alt="back side" 
+        draggable=${ false }
       >
     </div>`)
 
@@ -71,7 +77,7 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
 }
 
 /* Run the game */
-const runTheGame = () => addHeroesToHTML( heroesDiv, heroes, config.numberOfHeroes )
+const runTheGame = () => addHeroesToHTML( heroesDiv, heroes, config.numberOfHeroesPairs )
 runTheGame()
 /* END Run the game */
 
@@ -123,7 +129,6 @@ function flipHero() {
 }
 
 function checkHeroes() {
-  // lockGame = true
   counterValue.innerHTML = `${ ++turns }`
   firstHero.dataset.name === secondHero.dataset.name
     ? disableHeroes()
@@ -133,16 +138,19 @@ function checkHeroes() {
 function disableHeroes() {
   [ firstHero, secondHero ].forEach( el => {
     el.removeEventListener( 'click', flipHero )
-    // el.firstChild.classList.add('visible')
     el.childNodes.forEach( elem => {
-      if ( elem.nodeName === 'SPAN' ) {
-        // console.log(elem)
+      // show name of the hero
+      if ( elem.tagName === 'SPAN' ) {
         setTimeout( () => {
           elem.classList.remove( 'hidden' )
-        }, 400 )
+        }, config.timeToShowName )
       }
-      // console.dir(elem)
-      // console.log(el.childNodes)
+      // add grayscale effect to the hero img
+      if ( elem.tagName === 'IMG' ) {
+        setTimeout( () => {
+          elem.classList.add( 'grayscale-50' )
+        }, config.timeToShowName )
+      }
     } )
   } )
 
@@ -152,14 +160,12 @@ function disableHeroes() {
 
 function reset() {
   if ( foundPairs === allPairsOfHeroes ) {
-    clearInterval( timeID )
-
+    resetTime()
     // Invoke modal window with final result
     setTimeout( () => {
-      // alert( `time: ${ roundTime } seconds` )
-      let payload = `<div>${roundTime}</div>`
-      modalCreator(payload)
-    }, 500 )
+      let title = 'Congratulations, you WIN!!!'
+      modalCreator( modalFinish( title, roundTime, turns ) )
+    }, config.timeToNewGame )
   }
   firstHero = secondHero = null
   lockGame = false
@@ -187,6 +193,9 @@ function resetCounter() {
 
 function resetTime() {
   time = foundPairs = 0
+  // clear timer
+  clearInterval( timeID )
+
   return time
 }
 
@@ -199,16 +208,24 @@ function startNewGame() {
     runTheGame()
     setHeroEventListener()
     counterValue.innerHTML = resetCounter()
-  }, 500 )
+  }, config.timeToNewGame )
   timerValue.innerHTML = resetTime()
 }
 
 /**
  * Modal function
  */
-function modalCreator (payload) {
+function modalCreator( payload ) {
   modal.innerHTML = payload
-  modal.classList.toggle('top-50')
+  modal.classList.toggle( 'top-50' )
 }
 
-
+function modalFinish( title, time, turns ) {
+  return `
+<h2 class="modal__title">${ title }</h2>
+<ul class="modal__items item">
+  <li class="item__time">You time: <span>${ time }</span> seconds</li>
+  <li class="item__turns">Number of turns: <span>${ turns }</span></li>
+</ul>
+`
+}

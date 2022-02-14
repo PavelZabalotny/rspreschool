@@ -52,20 +52,65 @@ body {
 
 // Modal
 .modal {
-  width: 60%;
-  height: 60%;
   min-width: 400px;
   max-width: 500px;
   padding: 40px;
   position: absolute;
   z-index: 999;
-  top: -40%; // || 50%
+  top: -45%; // || 50%
+  //top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
-  background-color: #c6d4df;
+  color: $modal_font_color;
+  background-color: $modal_bg_color;
+  border-bottom: 4px solid $modal_border_color;
+  border-radius: 5px;
+
+  .modal__title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .modal__items {
+    list-style: none;
+
+    & li {
+      padding-top: 15px;
+      font-size: 1.2rem;
+
+      & span {
+        color: $modal_font_color_span;
+      }
+    }
+  }
 }
 
 .top-50 {
   top: 50%;
+}
+
+.grayscale-50 {
+  filter: grayscale(50%)
+}
+
+.button {
+  min-width: 100px;
+  cursor: pointer;
+  padding: 8px 16px;
+  appearance: none;
+  border-radius: 5px;
+  background: transparent;
+  color: $text-color;
+  font-weight: bold;
+  border: 3px solid #ffffff50;
+  transition: 0.2s;
+
+  &:hover {
+    border: 3px solid #ff6046;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
