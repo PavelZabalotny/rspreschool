@@ -1,0 +1,58 @@
+@import "variables";
+
+.header {
+  height: 80px;
+  background-color: $bg_header_color;
+  outline: 5px solid lighten($bg_header_color, 20%);
+
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__logo {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: 0.1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .game-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+
+      .timer {
+
+        .timer__value {
+          display: inline-block;
+          width: 43px;
+        }
+      }
+
+      .new-game {
+        @extend .button
+      }
+
+      .counter {
+
+        .counter__value {
+          width: 30px;
+          display: inline-block;
+        }
+      }
+    }
+
+    .record {
+      @extend .button
+    }
+  }
+}

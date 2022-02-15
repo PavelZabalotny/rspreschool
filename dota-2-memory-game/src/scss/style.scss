@@ -1,0 +1,116 @@
+@import "variables";
+@import "normalize.css";
+@import "../fonts/TrajanPro3Regular/style.css";
+@import "header";
+@import "main";
+@import "footer";
+
+html {
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  transition: 0.3s;
+
+  &:hover {
+    color: $text-color-hover;
+  }
+}
+
+img {
+  display: block;
+}
+
+body {
+  font-family: "Trajan Pro 3", serif;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: $bg_body_color;
+  position: relative;
+}
+
+.container {
+  max-width: calc(#{$hero_w * $grid_column} + (#{$grid_column - 1} * #{$gap}));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  //outline: 1px solid red;
+}
+
+.hidden {
+  visibility: hidden;
+  transition: 0.1s;
+}
+
+.visible {
+  visibility: visible;
+  transition: 0.1s;
+}
+
+// Modal
+.modal {
+  min-width: 400px;
+  max-width: 500px;
+  padding: 40px;
+  position: absolute;
+  z-index: 999;
+  top: -45%; // || 50%
+  //top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
+  color: $modal_font_color;
+  background-color: $modal_bg_color;
+  border-bottom: 4px solid $modal_border_color;
+  border-radius: 5px;
+
+  .modal__title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .modal__items {
+    list-style: none;
+
+    & li {
+      padding-top: 15px;
+      font-size: 1.2rem;
+
+      & span {
+        color: $modal_font_color_span;
+      }
+    }
+  }
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.grayscale-50 {
+  filter: grayscale(50%)
+}
+
+.button {
+  min-width: 100px;
+  cursor: pointer;
+  padding: 8px 16px;
+  appearance: none;
+  border-radius: 5px;
+  background: transparent;
+  color: $text-color;
+  font-weight: bold;
+  border: 3px solid #ffffff50;
+  transition: 0.2s;
+
+  &:hover {
+    border: 3px solid #ff6046;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

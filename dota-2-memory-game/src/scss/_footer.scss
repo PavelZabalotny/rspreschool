@@ -1,0 +1,38 @@
+@import "variables";
+
+.footer {
+  height: 80px;
+  //padding: 0.7rem 0;
+  font-size: 1.5rem;
+  background-color: #171a21;
+  outline: 5px solid lighten($bg_header_color, 20%);
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .github__logo {
+    width: 40px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .year {
+    font-size: 2rem;
+  }
+
+  .rsschool__logo {
+    width: 100px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
