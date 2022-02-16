@@ -2,7 +2,7 @@ import { heroes } from "./heroes.mjs"
 
 /* config */
 const config = {
-  numberOfHeroesPairs: 10,
+  numberOfHeroesPairs: 2,
   timeToUnflip: 1500,
   timeToShowName: 400,
   timeToNewGame: 500,
@@ -11,7 +11,10 @@ const config = {
 
 const heroesDiv = document.querySelector( '.heroes' )
 /* Modal window */
+const modalWrapper = document.querySelector( '.modal__wrapper' )
 const modal = document.querySelector( '.modal' )
+const modalClose = document.querySelector( '.modal__close' )
+const modalBody = document.querySelector( '.modal__body' )
 
 let allPairsOfHeroes
 
@@ -216,8 +219,8 @@ function startNewGame() {
  * Modal function
  */
 function modalCreator( payload ) {
-  modal.innerHTML = payload
-  modal.classList.toggle( 'top-50' )
+  modalBody.innerHTML = payload
+  modalWrapper.classList.toggle( 'top-50' )
 }
 
 function modalFinish( title, time, turns ) {
@@ -229,3 +232,7 @@ function modalFinish( title, time, turns ) {
 </ul>
 `
 }
+
+modalClose.addEventListener('click', function ( e ) {
+  modalWrapper.classList.toggle( 'top-50' )
+})

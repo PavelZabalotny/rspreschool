@@ -20,13 +20,14 @@
 <body>
 <header class="header">
   <div class="container">
-    <img class="header__logo" src="./src/assets/img/logo/dota-2-logo.svg" alt="logo">
-    <div class="game-info">
+    
+    
       <div class="timer">Timer: <span class="timer__value">0</span></div>
       <button class="new-game">New game</button>
+      <img class="header__logo" src="./src/assets/img/logo/dota-2-logo.svg" alt="logo">
       <button class="record">Record</button>
       <div class="counter">Turns: <span class="counter__value">0</span></div>
-    </div>
+
   </div>
 </header>
 <main class="main">
@@ -52,6 +53,14 @@
     </div>
   </div>
 </footer>
-<div class="modal"></div>
+
+<!-- Modal -->
+<div class="modal__wrapper">
+  <div class="modal">
+    <span class="modal__close">X</span>
+    <div class="modal__body"></div>
+  </div>
+</div>
+
 </body>
 </html>
