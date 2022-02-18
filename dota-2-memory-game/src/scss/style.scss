@@ -111,6 +111,18 @@ body {
         }
       }
     }
+
+  //  modal records
+    .modal__records {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      .record__item {
+        margin-top: 5px;
+      }
+    }
   }
 }
 

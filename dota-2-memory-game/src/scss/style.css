@@ -157,7 +157,7 @@ body {
 }
 
 .container {
-  max-width: calc(1075.2px + (4 * 20px));
+  max-width: calc(860.16px + (3 * 20px));
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -226,6 +226,15 @@ body {
 .modal__wrapper .modal .modal__items li span {
   color: #ff6046;
 }
+.modal__wrapper .modal .modal__records {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.modal__wrapper .modal .modal__records .record__item {
+  margin-top: 5px;
+}
 
 .top-50 {
   top: 0;
@@ -235,7 +244,7 @@ body {
   filter: grayscale(50%);
 }
 
-.button, .header .container .new-game, .header .container .record {
+.button, .header .container .new-game, .header .container .records {
   min-width: 100px;
   cursor: pointer;
   padding: 8px 16px;
@@ -247,10 +256,10 @@ body {
   border: 3px solid #ffffff50;
   transition: 0.2s;
 }
-.button:hover, .header .container .new-game:hover, .header .container .record:hover {
+.button:hover, .header .container .new-game:hover, .header .container .records:hover {
   border: 3px solid #ff6046;
 }
-.button:active, .header .container .new-game:active, .header .container .record:active {
+.button:active, .header .container .new-game:active, .header .container .records:active {
   transform: scale(0.9);
 }
 
