@@ -3,42 +3,40 @@
 @import "../fonts/TrajanPro3Regular/style.css";
 /* Variables */
 .header {
-  height: 80px;
+  min-height: 80px;
+  padding: 10px 0;
   background-color: #1f2126;
-  outline: 5px solid #4d525e;
+  border-bottom: 5px solid #4d525e;
 }
 .header .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .header .container .header__logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   transition: 0.1s;
 }
 .header .container .header__logo:hover {
   transform: scale(1.1);
 }
-.header .container .game-info {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.header .container .game-info .timer .timer__value {
+.header .container .timer .timer__value {
   display: inline-block;
   width: 43px;
 }
-.header .container .game-info .counter .counter__value {
+.header .container .counter .counter__value {
   width: 30px;
   display: inline-block;
 }
 /* Variables */
 .main {
   padding: 1rem 0;
+  background: url(../assets/img/bg/main-bg.jpg) no-repeat center/cover;
 }
 
 .heroes {
@@ -91,10 +89,10 @@
 .heroes .hero .hero__img-front {
   transform: rotateX(180deg);
 }
-.heroes .hero .hero__img-back {
+.heroes .hero .hero__img-back-side {
   z-index: 4;
 }
-.heroes .hero .hero__img-back,
+.heroes .hero .hero__img-back-side,
 .heroes .hero .hero__img-front {
   max-width: 215.04px;
   max-height: 120.96px;
@@ -104,16 +102,23 @@
 
 /* Variables */
 .footer {
-  height: 80px;
+  min-height: 80px;
   font-size: 1.5rem;
   background-color: #171a21;
-  outline: 5px solid #4d525e;
+  border-top: 5px solid #4d525e;
 }
 .footer .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+}
+.footer .github,
+.footer .year,
+.footer .rsschool {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
 }
 .footer .github__logo {
   width: 40px;
@@ -160,7 +165,7 @@ body {
 }
 
 .container {
-  max-width: calc(1075.2px + (4 * 20px));
+  max-width: calc(860.16px + (3 * 20px));
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -176,46 +181,81 @@ body {
   transition: 0.1s;
 }
 
-.modal {
-  min-width: 400px;
+.modal__wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: -100%;
+  z-index: 100;
+  transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
+}
+.modal__wrapper .modal {
+  min-width: 300px;
   max-width: 500px;
   padding: 40px;
   position: absolute;
   z-index: 999;
-  top: -45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 1s cubic-bezier(0.2, 0, 0.5, 1.4);
   color: #ffffff;
   background-color: #313131;
   border-bottom: 4px solid #646566;
   border-radius: 5px;
+  box-sizing: border-box;
 }
-.modal .modal__title {
+.modal__wrapper .modal .modal__close {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #EA473B;
+  padding: 5px 15px;
+  border-radius: 0 5px 0 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+@media screen and (max-width: 680px) {
+  .modal__wrapper .modal {
+    padding: 20px;
+  }
+}
+.modal__wrapper .modal .modal__title {
   text-align: center;
   font-size: 1.5rem;
+  margin-top: 0;
 }
-.modal .modal__items {
+.modal__wrapper .modal .modal__items {
   list-style: none;
+  margin: 0;
 }
-.modal .modal__items li {
+.modal__wrapper .modal .modal__items li {
   padding-top: 15px;
   font-size: 1.2rem;
 }
-.modal .modal__items li span {
+.modal__wrapper .modal .modal__items li span {
   color: #ff6046;
+}
+.modal__wrapper .modal .modal__records {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.modal__wrapper .modal .modal__records .record__item {
+  margin-top: 5px;
 }
 
 .top-50 {
-  top: 50%;
+  top: 0;
 }
 
 .grayscale-50 {
   filter: grayscale(50%);
 }
 
-.button, .header .container .game-info .new-game, .header .container .record {
-  min-width: 100px;
+.button, .header .container .new-game, .header .container .records {
+  min-width: 130px;
   cursor: pointer;
   padding: 8px 16px;
   appearance: none;
@@ -226,10 +266,10 @@ body {
   border: 3px solid #ffffff50;
   transition: 0.2s;
 }
-.button:hover, .header .container .game-info .new-game:hover, .header .container .record:hover {
+.button:hover, .header .container .new-game:hover, .header .container .records:hover {
   border: 3px solid #ff6046;
 }
-.button:active, .header .container .game-info .new-game:active, .header .container .record:active {
+.button:active, .header .container .new-game:active, .header .container .records:active {
   transform: scale(0.9);
 }
 

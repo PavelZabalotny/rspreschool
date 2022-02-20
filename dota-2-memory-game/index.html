@@ -2,12 +2,12 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
   <!-- Open graph -->
-  <meta property="og:title" content="The best Dota 2 memory game">
+  <meta property="og:title" content="Challenge yourself, test your memory, prove you're the best!!!">
   <meta property="og:site_name" content="Dota 2 memory game">
   <meta property="og:url" content="https://rolling-scopes-school.github.io/pavelzabalotny-JSFEPRESCHOOL/dota-2-memory-game/">
-<!--  <meta property="og:description" content="">-->
+  <meta property="og:description" content="This tutorial project was made by Pavel Zabalotny at the best frontend development course - The Rolling Scopes School (stage 0)!!!">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rolling-scopes-school.github.io/pavelzabalotny-JSFEPRESCHOOL/dota-2-memory-game/src/assets/img/Dota-2-memory-game.png">
+  <meta property="og:image" content="https://rolling-scopes-school.github.io/pavelzabalotny-JSFEPRESCHOOL/dota-2-memory-game/src/assets/img/Dota-2-memory-game.jpg">
   <!-- END Open graph -->
   <meta charset="UTF-8">
   <meta name="viewport"
@@ -18,17 +18,19 @@
   <title>Dota 2 memory game</title>
 </head>
 <body>
+
+<!-- Header -->
 <header class="header">
   <div class="container">
-    <img class="header__logo" src="./src/assets/img/logo/dota-2-logo.svg" alt="logo">
-    <div class="game-info">
       <div class="timer">Timer: <span class="timer__value">0</span></div>
       <button class="new-game">New game</button>
-      <button class="record">Record</button>
+      <img class="header__logo" src="./src/assets/img/logo/dota-2-logo.svg" alt="logo">
+      <button class="records">Records</button>
       <div class="counter">Turns: <span class="counter__value">0</span></div>
-    </div>
   </div>
 </header>
+
+<!-- Main -->
 <main class="main">
   <div class="container">
     
@@ -37,6 +39,8 @@
   
   </div>
 </main>
+
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="github">
@@ -52,6 +56,14 @@
     </div>
   </div>
 </footer>
-<div class="modal"></div>
+
+<!-- Modal -->
+<div class="modal__wrapper">
+  <div class="modal">
+    <span class="modal__close">X</span>
+    <div class="modal__body"></div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -2,16 +2,19 @@ import { heroes } from "./heroes.mjs"
 
 /* config */
 const config = {
-  numberOfHeroesPairs: 10,
+  numberOfHeroesPairs: 8,
   timeToUnflip: 1500,
   timeToShowName: 400,
   timeToNewGame: 500,
+  numberOfSaveRecords: 10,
 }
 /* END config */
 
 const heroesDiv = document.querySelector( '.heroes' )
 /* Modal window */
-const modal = document.querySelector( '.modal' )
+const modalWrapper = document.querySelector( '.modal__wrapper' )
+const modalClose = document.querySelector( '.modal__close' )
+const modalBody = document.querySelector( '.modal__body' )
 
 let allPairsOfHeroes
 
@@ -63,8 +66,8 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
         draggable=${ false }
       >
       <img 
-        class="hero__img-back" 
-        src="./src/assets/img/back/back.jpg" 
+        class="hero__img-back-side" 
+        src="./src/assets/img/back-side/back-side.webp" 
         alt="back side" 
         draggable=${ false }
       >
@@ -76,8 +79,23 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
   element.innerHTML = shuffleRandomHeroesArrayMap.join( '' ) // output heroes elements to HTML
 }
 
-/* Run the game */
-const runTheGame = () => addHeroesToHTML( heroesDiv, heroes, config.numberOfHeroesPairs )
+/* TODO: Run the game */
+let firstHero, secondHero, timeID
+let lockGame = false
+let turns = 0
+let time = 0
+let foundPairs = 0
+let roundTime
+let records
+let isNewRecord = false
+const RECORDS_KEY = 'records'
+
+const runTheGame = () => {
+  addHeroesToHTML( heroesDiv, heroes, config.numberOfHeroesPairs )
+  if ( !records ) {
+    records = getRecordsFromLocalStorage( RECORDS_KEY )
+  }
+}
 runTheGame()
 /* END Run the game */
 
@@ -87,12 +105,6 @@ const counterValue = document.querySelector( '.counter__value' )
 const timerValue = document.querySelector( '.timer__value' )
 
 /* Flip the Heroes */
-let firstHero, secondHero, timeID
-let lockGame = false
-let turns = 0
-let time = 0
-let foundPairs = 0
-let roundTime
 
 const setHeroEventListener = () => {
   heroElements = document.querySelectorAll( '.hero' )
@@ -160,8 +172,15 @@ function disableHeroes() {
 
 function reset() {
   if ( foundPairs === allPairsOfHeroes ) {
+    // TODO: Game Over, set record to local storage
+    isNewRecord = true
+    const newRecord = {
+      roundTime,
+      turns
+    }
+    addNewRecord( newRecord )
     resetTime()
-    // Invoke modal window with final result
+    // TODO: Invoke modal window with final result
     setTimeout( () => {
       let title = 'Congratulations, you WIN!!!'
       modalCreator( modalFinish( title, roundTime, turns ) )
@@ -183,6 +202,7 @@ function unflipHeroes() {
   }, config.timeToUnflip )
 }
 
+// TODO: start new game
 newGame.addEventListener( 'click', startNewGame )
 
 function resetCounter() {
@@ -216,16 +236,75 @@ function startNewGame() {
  * Modal function
  */
 function modalCreator( payload ) {
-  modal.innerHTML = payload
-  modal.classList.toggle( 'top-50' )
+  modalBody.innerHTML = payload
+  modalWrapper.classList.toggle( 'top-50' )
 }
 
 function modalFinish( title, time, turns ) {
   return `
-<h2 class="modal__title">${ title }</h2>
-<ul class="modal__items item">
-  <li class="item__time">You time: <span>${ time }</span> seconds</li>
-  <li class="item__turns">Number of turns: <span>${ turns }</span></li>
-</ul>
-`
+    <h2 class="modal__title">${ title }</h2>
+    <ul class="modal__items item">
+      <li class="item__time">You time: <span>${ time }</span> seconds</li>
+      <li class="item__turns">Number of turns: <span>${ turns }</span></li>
+    </ul>
+   `
+}
+
+function modalRecords( title, arrayOfRecords ) {
+  let mappingRecords
+  if ( typeof arrayOfRecords === 'string' ) {
+    mappingRecords = arrayOfRecords
+  } else {
+    mappingRecords = arrayOfRecords
+      .map( ( el, i ) => `
+          <li class="record__item">${ ++i }) time: ${ el.roundTime }, turns: ${ el.turns }</li>
+        ` )
+      .join( '' )
+  }
+
+  return `
+    <h2 class="modal__title">${ title }</h2>
+    <ul class="modal__records record">${ mappingRecords }</ul>
+   `
+}
+
+modalClose.addEventListener( 'click', function () {
+  modalWrapper.classList.toggle( 'top-50' )
+} )
+
+// Local storage
+function getRecordsFromLocalStorage( key ) {
+  const recordsObj = localStorage.getItem( key ) // return array of object or null
+  return JSON.parse( recordsObj ) ?? []
+}
+
+// TODO: save records to local storage when unload event is fired
+window.addEventListener( 'unload', saveRecordsToLocalStorage )
+
+function saveRecordsToLocalStorage() {
+  if ( isNewRecord ) {
+    localStorage.setItem( RECORDS_KEY, JSON.stringify( records ) )
+  }
+}
+
+const recordsButton = document.querySelector( '.records' )
+recordsButton.addEventListener( 'click', showRecords )
+
+function showRecords() {
+  const title = 'Records'
+  modalCreator( modalRecords( title, sortRecords() ) )
+}
+
+function sortRecords() {
+  if ( !records.length ) {
+    return 'Nothing to show!!!'
+  }
+  return [ ...records ].sort( ( a, b ) => a.roundTime - b.roundTime )
+}
+
+function addNewRecord( newRecord ) {
+  records.push( newRecord )
+  if ( records.length > 10 ) {
+    records.shift()
+  }
 }
