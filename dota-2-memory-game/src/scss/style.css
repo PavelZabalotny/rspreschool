@@ -6,7 +6,7 @@
   min-height: 80px;
   padding: 10px 0;
   background-color: #1f2126;
-  outline: 5px solid #4d525e;
+  border-bottom: 5px solid #4d525e;
 }
 .header .container {
   display: flex;
@@ -17,8 +17,8 @@
   gap: 10px;
 }
 .header .container .header__logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   transition: 0.1s;
 }
@@ -36,6 +36,7 @@
 /* Variables */
 .main {
   padding: 1rem 0;
+  background: url(../assets/img/bg/main-bg.jpg) no-repeat center/cover;
 }
 
 .heroes {
@@ -88,10 +89,10 @@
 .heroes .hero .hero__img-front {
   transform: rotateX(180deg);
 }
-.heroes .hero .hero__img-back {
+.heroes .hero .hero__img-back-side {
   z-index: 4;
 }
-.heroes .hero .hero__img-back,
+.heroes .hero .hero__img-back-side,
 .heroes .hero .hero__img-front {
   max-width: 215.04px;
   max-height: 120.96px;
@@ -104,13 +105,20 @@
   min-height: 80px;
   font-size: 1.5rem;
   background-color: #171a21;
-  outline: 5px solid #4d525e;
+  border-top: 5px solid #4d525e;
 }
 .footer .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+}
+.footer .github,
+.footer .year,
+.footer .rsschool {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
 }
 .footer .github__logo {
   width: 40px;
@@ -215,9 +223,11 @@ body {
 .modal__wrapper .modal .modal__title {
   text-align: center;
   font-size: 1.5rem;
+  margin-top: 0;
 }
 .modal__wrapper .modal .modal__items {
   list-style: none;
+  margin: 0;
 }
 .modal__wrapper .modal .modal__items li {
   padding-top: 15px;
@@ -245,7 +255,7 @@ body {
 }
 
 .button, .header .container .new-game, .header .container .records {
-  min-width: 100px;
+  min-width: 130px;
   cursor: pointer;
   padding: 8px 16px;
   appearance: none;

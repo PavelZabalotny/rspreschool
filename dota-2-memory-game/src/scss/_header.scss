@@ -4,8 +4,7 @@
   min-height: 80px;
   padding: 10px 0;
   background-color: $bg_header_color;
-  outline: 5px solid lighten($bg_header_color, 20%);
-
+  border-bottom: 5px solid lighten($bg_header_color, 20%);
 
   .container {
     display: flex;
@@ -16,8 +15,8 @@
     gap: 10px;
 
     .header__logo {
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       cursor: pointer;
       transition: 0.1s;
 
@@ -25,7 +24,6 @@
         transform: scale(1.1);
       }
     }
-
 
     .timer {
 

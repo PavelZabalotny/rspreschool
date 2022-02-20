@@ -66,8 +66,8 @@ function addHeroesToHTML( element, heroes, numberOfHeroes ) {
         draggable=${ false }
       >
       <img 
-        class="hero__img-back" 
-        src="./src/assets/img/back/back.jpg" 
+        class="hero__img-back-side" 
+        src="./src/assets/img/back-side/back-side.webp" 
         alt="back side" 
         draggable=${ false }
       >
@@ -251,12 +251,20 @@ function modalFinish( title, time, turns ) {
 }
 
 function modalRecords( title, arrayOfRecords ) {
-  const mappingRecords = arrayOfRecords.map( ( el, i ) => `
-    <li class="record__item">${ ++i }) time: ${ el.roundTime }, turns: ${ el.turns }</li>
-   ` )
+  let mappingRecords
+  if ( typeof arrayOfRecords === 'string' ) {
+    mappingRecords = arrayOfRecords
+  } else {
+    mappingRecords = arrayOfRecords
+      .map( ( el, i ) => `
+          <li class="record__item">${ ++i }) time: ${ el.roundTime }, turns: ${ el.turns }</li>
+        ` )
+      .join( '' )
+  }
+
   return `
     <h2 class="modal__title">${ title }</h2>
-    <ul class="modal__records record">${ mappingRecords.join( '' ) }</ul>
+    <ul class="modal__records record">${ mappingRecords }</ul>
    `
 }
 
@@ -288,7 +296,10 @@ function showRecords() {
 }
 
 function sortRecords() {
-  return [...records].sort( ( a, b ) => a.roundTime - b.roundTime )
+  if ( !records.length ) {
+    return 'Nothing to show!!!'
+  }
+  return [ ...records ].sort( ( a, b ) => a.roundTime - b.roundTime )
 }
 
 function addNewRecord( newRecord ) {

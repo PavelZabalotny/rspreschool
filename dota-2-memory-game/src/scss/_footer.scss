@@ -3,14 +3,21 @@
 .footer {
   min-height: 80px;
   font-size: 1.5rem;
-  background-color: #171a21;
-  outline: 5px solid lighten($bg_header_color, 20%);
+  background-color: $bg_footer_color;
+  border-top: 5px solid lighten($bg_header_color, 20%);
 
   .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+  }
+  .github,
+  .year,
+  .rsschool {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
   }
 
   .github__logo {
