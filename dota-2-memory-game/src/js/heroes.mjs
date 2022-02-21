@@ -110,7 +110,7 @@ export const heroes = [
     isShow: false,
   },
   {
-    name: 'Dawnbreake',
+    name: 'Dawnbreaker',
     src: 'Dawnbreaker_icon.png',
     isShow: false,
   },
@@ -245,7 +245,7 @@ export const heroes = [
     isShow: false,
   },
   {
-    name: 'Lifesteale',
+    name: 'Lifestealer',
     src: 'Lifestealer_icon.png',
     isShow: false,
   },
@@ -365,7 +365,7 @@ export const heroes = [
     isShow: false,
   },
   {
-    name: 'Phantom Lance',
+    name: 'Phantom Lancer',
     src: 'Phantom_Lancer_icon.png',
     isShow: false,
   },
