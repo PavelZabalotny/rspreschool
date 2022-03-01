@@ -228,6 +228,8 @@ body {
 .modal__wrapper .modal .modal__items {
   list-style: none;
   margin: 0;
+  padding: 0;
+  text-align: center;
 }
 .modal__wrapper .modal .modal__items li {
   padding-top: 15px;
@@ -248,10 +250,6 @@ body {
 
 .top-50 {
   top: 0;
-}
-
-.grayscale-50 {
-  filter: grayscale(50%);
 }
 
 .button, .header .container .new-game, .header .container .records {

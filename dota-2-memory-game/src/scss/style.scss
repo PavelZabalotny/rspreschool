@@ -98,6 +98,8 @@ body {
     .modal__items {
       list-style: none;
       margin: 0;
+      padding: 0;
+      text-align: center;
 
       & li {
         padding-top: 15px;
@@ -128,7 +130,7 @@ body {
 }
 
 .grayscale-50 {
-  filter: grayscale(50%)
+  //filter: grayscale(50%) // bug in firefox: front card don't show
 }
 
 .button {
