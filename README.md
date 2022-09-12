@@ -9,6 +9,6 @@ Memory-game набор из двенадцати (может быть друго
 ## Result:
 1. [Task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30-8.md)
 2. Screenshot:
-![image](./src/assets/img/Dota-2-memory-game-screenshot.png)
+![image](dota-2-memory-game/src/assets/img/Dota-2-memory-game-screenshot.png)
 3. [Deploy](https://pavelzabalotny.github.io/rspreschool/dota-2-memory-game/)
 4. Done: 21.02.2022
