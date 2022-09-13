@@ -1,2 +1,4 @@
-# pavelzabalotny-JSFEPRESCHOOL
-Private repository for @pavelzabalotny
+### Выполненные задания подготовительного курса [«JavaScript/Front-end. Stage 0»]()https://rs.school/js-stage0/
+
+1. [Portfolio](https://github.com/PavelZabalotny/rspreschool/tree/portfolio) – задание stage#0 в ходе выполнения которого вы сверстаете landing page портфолио фотографа, сделаете его адаптивным и интерактивным.
+2. [Memory-game](https://github.com/PavelZabalotny/rspreschool/tree/dota-2-memory-game) набор из двенадцати (может быть другое количество) пар одинаковых карточек, которые отображаются "рубашкой" вверх. Кликом по карточке игрок переворачивает её и кликает по следующей карточке. Если на двух карточках изображены одинаковые рисунки, они остаются открытыми, если рисунки разные - карточки переворачиваются "рубашками" вверх. Цель игры - открыть все карточки за наименьшее число ходов.
